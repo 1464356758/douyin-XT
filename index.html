@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#10283b">
+<title>神级评论电影工厂 · 人审工作台</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:#1c3345;background:#f4f4f1;font-size:15px}
+*{box-sizing:border-box}body{margin:0}a{color:#1b6390;text-decoration:none}a:hover{text-decoration:underline}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.top{background:#10283b;color:#fff;padding:24px max(18px,calc((100vw - 1200px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:15px}.logo{background:#e6b77e;color:#182e3e;border-radius:14px;width:51px;height:51px;display:grid;place-items:center;font-size:24px}
+.top h1{font-size:21px;margin:0 0 4px;letter-spacing:.8px}.top p{margin:0;color:#bfd0dc;font-size:12px}.top a{color:#dbecf7;font-size:12px}
+main{max-width:1200px;margin:auto;padding:24px 20px 70px}
+.headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.headline h2{font-size:27px;letter-spacing:-.4px;margin:0 0 6px}.muted{color:#677d8a;font-size:13px}
+.flex{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid #cad6dc;background:#fff;color:#18374b;border-radius:10px;padding:10px 14px;font-weight:650;line-height:1.4}
+.btn.primary{background:#14384f;border-color:#14384f;color:#fff}.btn.soft{background:#edf4f5}.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn:hover:not(:disabled){filter:brightness(.97)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e0a25b;outline-offset:3px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.stat{background:#fff;border:1px solid #e2e6e7;border-radius:14px;padding:17px 20px;box-shadow:0 4px 15px rgba(20,45,55,.025)}
+.stat b{font-size:30px;display:block;margin:4px 0}.stat span{color:#7b8790;font-size:12px}
+.work{display:grid;grid-template-columns:320px minmax(0,1fr);gap:16px}
+.side,.detail{background:#fff;border:1px solid #e0e5e7;border-radius:16px;box-shadow:0 8px 24px rgba(16,40,59,.025)}
+.side{padding:16px;align-self:start}.side h3{font-size:14px;margin:2px 0 14px;color:#4b6272}
+.item{border:1px solid #e7e9e9;background:#fff;text-align:left;width:100%;padding:14px;border-radius:12px;margin:0 0 9px;display:block}
+.item.active{border-color:#417e91;background:#f0f7f6;box-shadow:inset 3px 0 #417e91}
+.item strong{display:block;margin-bottom:6px;font-size:15px}.item .sub{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:#71808a}
+.tiny{font-size:12px;color:#77909a}.detail{min-width:0;padding:23px}
+.section{margin:0 0 25px;padding:0 0 24px;border-bottom:1px solid #e7eaeb}.section:last-child{border:0;margin-bottom:0;padding-bottom:0}
+.detail h2{font-size:24px;margin:0 0 6px}.detail h3{font-size:16px;margin:0 0 13px}
+.quote{padding:16px 20px;border-radius:12px;background:#f6f3ec;border-left:3px solid #d7ae75;line-height:1.9;font-size:18px;font-weight:600;margin:12px 0}
+.chip{display:inline-block;background:#ecf2f3;border-radius:999px;padding:5px 11px;font-size:12px;color:#35616e}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:18px}
+.step{padding:8px 4px;text-align:center;border-radius:7px;background:#e9edef;color:#778a97;font-size:11px;min-width:0}
+.step.current{background:#e4f1ed;color:#0c6659;font-weight:800}.step.done{background:#dce8ee;color:#355b74;font-weight:750}
+.notice{background:#fff6e8;border:1px solid #f3dcad;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.8}
+.tip{background:#eef5f6;border-radius:10px;padding:14px 16px;line-height:1.75;font-size:13px}
+.checks{padding-left:22px;margin:0}.checks li{margin:0 0 8px;line-height:1.6}
+.media{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
+.media-card{border:1px solid #e3e6e8;border-radius:12px;padding:8px;overflow:hidden;background:#fafbfb}
+.media-card img,.media-card video{display:block;width:100%;max-height:250px;object-fit:contain;border-radius:7px;background:#202b30}
+.media-card a{display:block;overflow-wrap:anywhere;font-size:12px;margin-top:8px}
+details summary{cursor:pointer;font-weight:700;color:#324f63}pre{white-space:pre-wrap;word-break:break-word;line-height:1.8;font:13px/1.8 inherit;color:#365267;max-height:420px;overflow:auto;background:#f7f9fa;padding:15px;border-radius:10px}
+.log{font-size:12px;color:#647682;padding:8px 0;border-bottom:1px solid #eef0f1}
+.warnings{background:#f8eeee;border:1px solid #f0dedb;color:#855149;border-radius:12px;font-size:12px;padding:13px;line-height:1.7;margin:18px 0}
+form{display:grid;gap:10px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+label{display:block;font-size:13px;font-weight:750;color:#3f5562}
+input,select,textarea{width:100%;padding:11px;background:white;border:1px solid #cbd4d9;border-radius:9px;margin-top:6px}
+textarea{min-height:105px;resize:vertical}
+.hidden{display:none}
+footer{margin-top:30px;font-size:12px;color:#7a8991;text-align:center}
+@media(max-width:850px){.work{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(1,minmax(0,1fr))}.item{margin-bottom:7px}}
+@media(max-width:570px){.top{padding:18px 16px}.top h1{font-size:18px}.logo{width:43px;height:43px}.headline h2{font-size:23px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:12px}.detail{padding:17px}.flow{grid-template-columns:repeat(3,1fr);gap:5px}.quote{font-size:16px}.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand"><div class="logo">🎞</div><div><h1>神级评论电影工厂</h1><p>把一句值得记住的话，拍成一部11秒电影。</p></div></div>
+ <a href="https://github.com/1464356758/douyin-XT" target="_blank" rel="noopener">GitHub仓库 ↗</a>
+</header>
+<main>
+ <section class="headline"><div><h2>电影制作工作台</h2><div class="muted">GPT出图 · 你审画面 · 即梦图生视频 · 你审成片</div></div>
+ <div class="flex"><button id="refresh" class="btn soft">↻ 刷新进度</button><button id="toggle-new" class="btn primary">＋ 新增作品</button></div></section>
+ <div id="new-box" class="section hidden" style="background:white;border:1px solid #e1e5e7;padding:20px;border-radius:16px">
+  <h3>新增一部电影</h3><p class="muted">填写完整原稿后，会打开GitHub新Issue，使用你的GitHub账户提交即创建项目。</p>
+  <form id="new-form">
+   <div class="form-row"><label>作品名<input id="new-title" maxlength="80" required placeholder="例如：风把春天吹醒了"></label><label>片型<select id="new-kind"><option value="H">真人微剧情</option><option value="S">纯风景</option><option value="C" selected>真人＋风景</option></select></label></div>
+   <label>核心文案<textarea id="new-quote" maxlength="300" required placeholder="这部电影必须保留的那句话"></textarea></label>
+   <label>原稿与11秒分镜<textarea id="new-original" maxlength="3500" required placeholder="粘贴完整的原稿、时间轴、对白、配乐和结尾。"></textarea></label>
+   <div class="flex"><button class="btn primary" type="submit">打开GitHub，创建正式项目 ↗</button><button class="btn" type="button" id="new-cancel">取消</button></div>
+  </form>
+ </div>
+ <section class="stats" id="stats"><div class="stat">读取中…</div></section>
+ <div class="work"><aside class="side"><h3>📁 正式影片</h3><div id="films">正在读取GitHub状态…</div></aside><section class="detail" id="detail"><p>请选择左边的影片。</p></section></div>
+ <div class="warnings">🔒 <b>隐私与权限：</b>这是公开GitHub仓库。你上传到Issue的图片、视频预览和返修记录也会公开。未公开的商业素材不要在这里上传高清原片。网页不收集密码和令牌；只有仓库主人在GitHub发出的审核指令会改变正式状态。</div>
+ <footer>神级评论电影工厂 V1.0 · GitHub 是唯一进度事实源 · 网页只读，审核在GitHub登录完成</footer>
+</main>
+<script>
+"use strict";
+const REPO="1464356758/douyin-XT";
+const ISSUE="https://github.com/"+REPO+"/issues/";
+const LABELS={IMAGE_PREP:"等待GPT出图",IMAGE_REVIEW:"需要你审核图片",IMAGE_REWORK:"图片返修中",VIDEO_PREP:"等待图生视频",VIDEO_REVIEW:"需要你审核成片",VIDEO_REWORK:"视频返修中",READY_PUBLISH:"成片通过·可发布",PUBLISHED:"已发布"};
+const STEPS=["选择原稿","GPT出图","审图片","图生视频","审成片","发布"];
+let db={projects:[]},selected=null;
+function esc(x){return String(x==null?"":x).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function stageAt(s){if(s==="IMAGE_PREP"||s==="IMAGE_REWORK")return 1;if(s==="IMAGE_REVIEW")return 2;if(s==="VIDEO_PREP"||s==="VIDEO_REWORK")return 3;if(s==="VIDEO_REVIEW")return 4;return 5}
+function colorStage(s){return s==="IMAGE_REVIEW"||s==="VIDEO_REVIEW"?"#a45322":s==="PUBLISHED"?"#146d59":"#38647f"}
+function linkIssue(n){return ISSUE+Number(n)}
+function urlOK(u){try{const x=new URL(u);return x.protocol==="https:"&&(["github.com","user-images.githubusercontent.com","raw.githubusercontent.com"].includes(x.hostname))}catch(e){return false}}
+function stats(){
+ const p=db.projects||[],review=p.filter(x=>["IMAGE_REVIEW","VIDEO_REVIEW"].includes(x.stage)).length,finished=p.filter(x=>x.stage==="PUBLISHED").length;
+ document.getElementById("stats").innerHTML=[
+ ["正式影片",p.length],["等待你审核",review],["成片审核通过",p.filter(x=>["READY_PUBLISH","PUBLISHED"].includes(x.stage)).length],["已发布",finished]
+ ].map(function(x){return '<div class="stat"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>'}).join("");
+}
+function choose(id){selected=id; history.replaceState(null,"",location.pathname+"?film="+encodeURIComponent(id));draw();}
+function films(){document.getElementById("films").innerHTML=(db.projects||[]).map(function(p){
+ return '<button class="item '+(p.id===selected?"active":"")+'" data-film="'+esc(p.id)+'"><strong>'+esc(p.title)+'</strong><div class="sub"><span>'+esc(p.kind_label)+'</span><span style="color:'+colorStage(p.stage)+'">'+esc(LABELS[p.stage]||p.stage)+'</span></div></button>'
+ }).join("");}
+function mediaView(urls,type){
+ if(!urls||!urls.length)return '<div class="tip">还没有提交可以审核的实际素材。必须在GitHub工单上传真实图片或视频，不能只凭文字说已经做好。</div>';
+ return '<div class="media">'+urls.filter(urlOK).map(function(u,i){
+  return '<div class="media-card">'+(type==="image"?'<a href="'+esc(u)+'" target="_blank" rel="noopener"><img src="'+esc(u)+'" loading="lazy" alt="第'+(i+1)+'张待审图"></a>':'<video src="'+esc(u)+'" controls playsinline preload="metadata"></video>')+'<a href="'+esc(u)+'" target="_blank" rel="noopener">打开原始素材 '+(i+1)+' ↗</a></div>'
+ }).join("")+'</div>';
+}
+function actions(p){
+ const stage=p.stage,issue=linkIssue(p.issue);
+ let command="",hint="";
+ if(stage==="IMAGE_PREP"||stage==="IMAGE_REWORK"){command="/submit-image";hint="先用GPT生成并检查分镜图片；在工单里写指令，然后把图片拖进同一条评论。"}
+ if(stage==="IMAGE_REVIEW"){command="/approve-image";hint="必须看实际像素：人物是否一致？视角、构图、手部、物品、文案时间线是否正确？有问题请返修。"}
+ if(stage==="VIDEO_PREP"||stage==="VIDEO_REWORK"){command="/submit-video";hint="即梦或可灵图生视频，剪映完成11秒。提交可公开的视频预览供人工终审。"}
+ if(stage==="VIDEO_REVIEW"){command="/approve-video";hint="必须完整播放，检查动作、人物、对白出现时间、音乐、结尾字幕以及抖音AI标识。"}
+ if(stage==="READY_PUBLISH"){command="/published https://www.douyin.com/video/";hint="你已亲自通过成片，可以在抖音发布。发布后把实际视频地址登记到工单。"}
+ if(stage==="PUBLISHED"){command="/stats views=100 likes=10 shares=2 follows=1";hint="发布后记录24小时、72小时与7天的表现；这些数据由你手动提供，系统不虚构。"}
+ let out='<div class="tip"><b>下一步：</b>'+esc(hint)+'</div><div class="flex" style="margin-top:14px">';
+ if(command)out+='<button class="btn soft" data-copy="'+esc(command)+'">复制下一步指令</button>';
+ out+='<a class="btn primary" href="'+esc(issue)+'" target="_blank" rel="noopener">打开GitHub审核工单 ↗</a></div>';
+ if(stage==="IMAGE_REVIEW"||stage==="VIDEO_REVIEW"){
+  const isImage=stage==="IMAGE_REVIEW";
+  out+='<div class="flex" style="margin-top:10px"><button class="btn" data-copy="'+(isImage?"/approve-image":"/approve-video")+'">✅ 复制审核通过</button><button class="btn" data-copy="'+(isImage?"/revise-image 镜头视角／人物／手部需要修改：":"/revise-video 画面／动作／声音需要修改：")+'">↩ 复制返修意见</button></div>';
+ }
+ out+='<p class="tiny" style="margin-top:10px">操作方法：点击复制，再去工单评论粘贴。GitHub Actions处理后刷新网页。附件必须与提交命令放在同一条评论。</p>';
+ return out;
+}
+function draw(){
+ stats();films(); const p=(db.projects||[]).find(x=>x.id===selected);
+ if(!p){document.getElementById("detail").innerHTML="<p>暂时没有影片。</p>";return}
+ let progress='<div class="flow">'+STEPS.map(function(s,i){return '<div class="step '+(i===stageAt(p.stage)?"current":i<stageAt(p.stage)?"done":"")+'">'+(i+1)+'. '+s+'</div>'}).join("")+'</div>';
+ let focus=(p.review_focus||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
+ const promptUrl="https://github.com/"+REPO+"/blob/main/prompts/"+encodeURIComponent(p.id)+".md";
+ const notes=(p.notes||[]).slice().reverse().slice(0,5).map(n=>'<div class="log">↩ '+esc(n.type==="image"?"图片":"视频")+'：'+esc(n.text)+'</div>').join("");
+ const audit=(p.history||[]).slice().reverse().slice(0,8).map(h=>'<div class="log">'+esc(h.at)+' ｜ '+esc(h.action)+' ｜ '+esc(h.detail||"")+'</div>').join("");
+ let body='<div class="section"><div class="flex"><span class="chip">'+esc(p.id)+' · '+esc(p.kind_label)+'</span><span class="chip" style="color:'+colorStage(p.stage)+'">'+esc(LABELS[p.stage]||p.stage)+'</span></div><h2 style="margin-top:13px">'+esc(p.title)+'</h2><div class="quote">'+esc(p.quote)+'</div>'+progress+'</div>';
+ body+='<div class="section"><h3>👀 这一步需要你做什么</h3>'+actions(p)+'</div>';
+ body+='<div class="section"><h3>🔎 重点审核哪些视觉细节</h3><ol class="checks">'+focus+'</ol></div>';
+ if(p.last_image_batch&&p.last_image_batch.length)body+='<div class="section"><h3>🖼 当前图片 V'+Number(p.image_revision||0)+'</h3>'+mediaView(p.last_image_batch,"image")+'</div>';
+ if(p.last_video_batch&&p.last_video_batch.length)body+='<div class="section"><h3>🎥 当前视频 V'+Number(p.video_revision||0)+'</h3>'+mediaView(p.last_video_batch,"video")+'</div>';
+ body+='<div class="section"><h3>📜 冻结原稿，不准擅改</h3><details><summary>点击展开完整原稿、对白与11秒时间线</summary><pre>'+esc(p.original)+'</pre></details><p class="muted" style="margin-top:12px"><a target="_blank" rel="noopener" href="'+esc(promptUrl)+'">打开专属GPT出图和视频提示词 ↗</a> （新建影片可先使用原稿）</p></div>';
+ if(notes)body+='<div class="section"><h3>✍️ 返修记录</h3>'+notes+'</div>';
+ if(p.published_url)body+='<div class="section"><h3>📈 已发布</h3><p><a href="'+esc(p.published_url)+'" target="_blank" rel="noopener">打开抖音成片 ↗</a></p><p>播放 '+Number((p.stats||{}).views||0)+' · 点赞 '+Number((p.stats||{}).likes||0)+' · 分享 '+Number((p.stats||{}).shares||0)+' · 新关注 '+Number((p.stats||{}).follows||0)+'</p></div>';
+ body+='<div class="section"><details><summary>🧾 历史记录与版本追溯</summary>'+audit+'</details></div>';
+ document.getElementById("detail").innerHTML=body;
+}
+function decodeBase64(b64){const bytes=Uint8Array.from(atob(b64.replace(/\s/g,"")),c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)}
+async function refresh(fresh){
+ const button=document.getElementById("refresh");button.disabled=true;button.textContent="刷新中…";
+ try{
+  let result;
+  if(fresh){
+    const url="https://api.github.com/repos/"+REPO+"/contents/data/projects.json?ref=main&t="+Date.now();
+    const resp=await fetch(url,{cache:"no-store"});
+    if(resp.ok){const blob=await resp.json();result=JSON.parse(decodeBase64(blob.content))}
+  }
+  if(!result){const response=await fetch("./data/projects.json?t="+Date.now(),{cache:"no-store"});if(!response.ok)throw Error("状态文件不可读");result=await response.json()}
+  db=result;const fromUrl=new URLSearchParams(location.search).get("film");
+  if(!selected || !(db.projects||[]).some(p=>p.id===selected))selected=(db.projects||[]).find(p=>p.id===fromUrl)?.id||(db.projects||[])[0]?.id;
+  draw();
+ }catch(error){document.getElementById("films").textContent="读取失败，请检查GitHub Pages部署和网络："+error.message}
+ finally{button.disabled=false;button.textContent="↻ 刷新进度"}
+}
+document.getElementById("films").addEventListener("click",function(e){const el=e.target.closest("[data-film]");if(el)choose(el.dataset.film)});
+document.getElementById("detail").addEventListener("click",async function(e){const el=e.target.closest("[data-copy]");if(!el)return;const s=el.dataset.copy;try{await navigator.clipboard.writeText(s);const old=el.textContent;el.textContent="已复制 ✓";setTimeout(()=>el.textContent=old,1500)}catch(_){window.prompt("请复制指令",s)}});
+document.getElementById("refresh").addEventListener("click",()=>refresh(true));
+function newVis(show){document.getElementById("new-box").classList.toggle("hidden",!show)}
+document.getElementById("toggle-new").addEventListener("click",()=>newVis(true));
+document.getElementById("new-cancel").addEventListener("click",()=>newVis(false));
+document.getElementById("new-form").addEventListener("submit",function(e){
+ e.preventDefault();const d={title:document.getElementById("new-title").value.trim(),kind:document.getElementById("new-kind").value,quote:document.getElementById("new-quote").value.trim(),original:document.getElementById("new-original").value.trim()};
+ if(!d.title||!d.quote||!d.original)return;
+ const payload=JSON.stringify(d);
+ const body="<!-- FILM_CREATE_V1\n"+payload+"\n-->\n\n**新增正式影片：**"+d.title+"\n\n**核心文案：**"+d.quote+"\n\n请使用同一Issue上传图片或视频预览，审核指令参考仓库README。";
+ const url="https://github.com/"+REPO+"/issues/new?title="+encodeURIComponent("[新片] "+d.title)+"&body="+encodeURIComponent(body);
+ window.open(url,"_blank","noopener,noreferrer");
+});
+refresh(false);
+</script>
+</body>
+</html>
