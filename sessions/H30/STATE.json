@@ -8,7 +8,7 @@
   "image_revision": 3,
   "image_approved_by_user": true,
   "image_approval_evidence": "用户明确说：图1和图2单张定稿；图3审核后回复“定稿算了”，并要求“下一步，目的是出视频，用即梦”。",
-  "video_prompt_version": 5,
+  "video_prompt_version": 6,
   "video_revision": 1,
   "video_approved_by_user": false,
   "video_approval_evidence": null,
@@ -29,20 +29,21 @@
     "sessions/H30/outputs/VIDEO02_STARTFRAME_GPT_EDIT_V001.md",
     "sessions/H30/outputs/VIDEO_SHOT01_V002.md",
     "sessions/H30/outputs/SEEDANCE20_MINI_USAGE_NOTES_V001.md",
-    "sessions/H30/outputs/VIDEO_SHOT01_V003.md"
+    "sessions/H30/outputs/VIDEO_SHOT01_V003.md",
+    "sessions/H30/outputs/VIDEO_SHOT01_V004.md"
   ],
-  "latest_output_path": "sessions/H30/outputs/VIDEO_SHOT01_V003.md",
-  "latest_feedback_path": "sessions/H30/feedback/JIMENG_MINI_REFERENCE_ONLY_CORRECTION_V001.md",
+  "latest_output_path": "sessions/H30/outputs/VIDEO_SHOT01_V004.md",
+  "latest_feedback_path": "sessions/H30/feedback/VIDEO_SHOT01_DIALOGUE_CORRECTION_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "已实际查看本次4张图并按用户顺序绑定2.2、3、1、2.1。已发布图1Mini参考图版V003：只上传本次第3张1000158564.png为唯一参考图，9:16、5秒、单条；不要求首帧/尾帧槽位。等待实际图1MP4审核，用户确认后才锁定和进入下一镜头。图2CP0012起止剧情设计保留历史，首尾帧槽位操作在当前入口不激活；尚未发布新图2任务。",
+  "next_task": "图1Mini参考图V004已把女医生原台词“待会儿疼了就举手。”写进复制提示词；患者不说话，前3秒内说完。只上传1000158564.png为参考图，目标9:16、5秒、单条。等待实际图1MP4检查画面和对白；如上一版已生成先复用现有素材，不因补台词强制购买重生成。用户确认后才锁定及进入下一镜头。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 15,
-  "last_checkpoint": "CP0015",
+  "state_revision": 16,
+  "last_checkpoint": "CP0016",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT01",
-  "review_status": "PROMPT_V003_ISSUED_WAITING_VIDEO",
+  "review_status": "PROMPT_V004_ISSUED_WAITING_VIDEO",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
@@ -164,8 +165,8 @@
   },
   "current_video_task": {
     "shot": "SHOT01",
-    "version": 3,
-    "prompt_path": "sessions/H30/outputs/VIDEO_SHOT01_V003.md",
+    "version": 4,
+    "prompt_path": "sessions/H30/outputs/VIDEO_SHOT01_V004.md",
     "reference_uploaded_name": "1000158564.png",
     "reference_user_label": "1",
     "reference_upload_order_in_user_message": 3,
@@ -176,7 +177,19 @@
     "ratio": "9:16",
     "results_count_target": 1,
     "generation_performed_by_gpt": false,
-    "video_received": false
+    "video_received": false,
+    "dialogue": {
+      "speaker": "女医生",
+      "text": "待会儿疼了就举手。",
+      "language": "普通话",
+      "voice_direction": "自然、温柔的成年女性声线；日常提醒，不用播音腔，不刻意煽情",
+      "start_seconds_target": 0.3,
+      "finish_by_seconds_target": 3,
+      "repetitions": 1,
+      "patient_silent": true,
+      "audio_generation_requested": true,
+      "audio_output_verified": false
+    }
   },
   "shot02_previous_first_last_plan": {
     "checkpoint": "CP0012",
@@ -184,5 +197,7 @@
     "pre_action_user_label": "2.2",
     "post_action_user_label": "2.1",
     "new_reference_only_task_issued": false
-  }
+  },
+  "video_prompt_dialogue_required": true,
+  "audio_strategy": "REQUEST_MODEL_DIALOGUE_REUSE_EXISTING_VIDEO_BEFORE_PAID_REGENERATION"
 }
