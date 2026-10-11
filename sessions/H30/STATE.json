@@ -27,17 +27,17 @@
     "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md"
   ],
   "latest_output_path": "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md",
-  "latest_feedback_path": "sessions/H30/feedback/JIMENG_MEMBER_PRICE_SCREENSHOTS_V001.md",
+  "latest_feedback_path": "sessions/H30/feedback/JIMENG_FAST_FIRSTFRAME_CORRECTION_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "用户当前首帧误用了图3，唯一下一步：在Seedance2.0Fast的5秒9:16图生视频界面，把首帧换成已定稿图2（医生左侧，女生右手胸前举手），发截图。还不要点击生成。",
+  "next_task": "用户只需切换到Seedance 2.0 Mini 5秒30积分，截图核对多图参考上传界面。不要点击生成、不要现在粘贴提示词。Fast/FastVIP首帧方案已经撤回，因为图2是举手后停诊状态，无法重演前因。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 8,
-  "last_checkpoint": "CP0008",
+  "state_revision": 9,
+  "last_checkpoint": "CP0009",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT02",
-  "review_status": "WAITING_CORRECT_REFERENCE_IMAGE",
+  "review_status": "AWAITING_MINI_MULTI_REFERENCE_UI_SCREENSHOT",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
@@ -71,8 +71,8 @@
     "SHOT02": "NOT_GENERATED",
     "SHOT03": "NOT_GENERATED"
   },
-  "credit_strategy_version": 3,
-  "credit_strategy_status": "PRICE_PREVIEW_CAPTURED_NOT_GENERATED",
+  "credit_strategy_version": 4,
+  "credit_strategy_status": "FAST_FIRSTFRAME_REJECTED_SWITCH_TO_MINI_MULTI_REFERENCE",
   "member_price_preview_points_5s_9x16": {
     "Seedance 2.5": 60,
     "Seedance 2.0 Mini": 30,
@@ -80,5 +80,5 @@
     "Seedance 2.0 Fast VIP": 30,
     "Seedance 2.0 Fast": 25
   },
-  "credit_first_test_recommendation": "Seedance 2.0 Fast, 25 points (screen displayed)"
+  "credit_first_test_recommendation": "Seedance 2.0 Mini 5s 30 displayed credits, multi-image reference; verify interface before generating"
 }
