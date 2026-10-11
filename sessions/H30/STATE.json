@@ -2,14 +2,14 @@
   "schema": 1,
   "project_id": "H30",
   "title": "疼了就举手",
-  "stage": "VIDEO_FIRST",
+  "stage": "VIDEO_REVIEW",
   "original_source": "data/projects.json#H30",
   "image_prompt_version": 1,
   "image_revision": 3,
   "image_approved_by_user": true,
   "image_approval_evidence": "用户明确说：图1和图2单张定稿；图3审核后回复“定稿算了”，并要求“下一步，目的是出视频，用即梦”。",
   "video_prompt_version": 3,
-  "video_revision": 0,
+  "video_revision": 1,
   "video_approved_by_user": false,
   "video_approval_evidence": null,
   "completed_outputs": [
@@ -27,17 +27,17 @@
     "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md"
   ],
   "latest_output_path": "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md",
-  "latest_feedback_path": "sessions/H30/feedback/JIMENG_FAST_FIRSTFRAME_CORRECTION_V001.md",
+  "latest_feedback_path": "sessions/H30/feedback/VIDEO_SHOT02_REVIEW_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "用户只需切换到Seedance 2.0 Mini 5秒30积分，截图核对多图参考上传界面。不要点击生成、不要现在粘贴提示词。Fast/FastVIP首帧方案已经撤回，因为图2是举手后停诊状态，无法重演前因。",
+  "next_task": "收到5.09秒实际视频，已审前2秒医生撤出器械相对有效、缺少从犹豫到举手。先请用户说明这条视频实际使用哪一款即梦模型、提供了哪几张参考图片，再决定是否需要且如何最低积分补拍举手。不要现在重新生成。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 9,
-  "last_checkpoint": "CP0009",
+  "state_revision": 10,
+  "last_checkpoint": "CP0010",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT02",
-  "review_status": "AWAITING_MINI_MULTI_REFERENCE_UI_SCREENSHOT",
+  "review_status": "PARTIAL_PASS_MISSING_HAND_RAISE",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
@@ -68,7 +68,7 @@
   },
   "video_clips_status": {
     "SHOT01": "NOT_GENERATED",
-    "SHOT02": "NOT_GENERATED",
+    "SHOT02": "GENERATED_REVIEW_PARTIAL_PASS_NOT_LOCKED",
     "SHOT03": "NOT_GENERATED"
   },
   "credit_strategy_version": 4,
