@@ -3,180 +3,196 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light">
-<meta name="theme-color" content="#10283b">
-<title>神级评论电影工厂 · 人审工作台</title>
+<meta name="theme-color" content="#182b3b">
+<title>神级评论电影工厂｜GPT聊天工作流</title>
 <style>
-:root{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:#1c3345;background:#f4f4f1;font-size:15px}
-*{box-sizing:border-box}body{margin:0}a{color:#1b6390;text-decoration:none}a:hover{text-decoration:underline}
-button,input,select,textarea{font:inherit}button{cursor:pointer}
-.top{background:#10283b;color:#fff;padding:24px max(18px,calc((100vw - 1200px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:15px}.logo{background:#e6b77e;color:#182e3e;border-radius:14px;width:51px;height:51px;display:grid;place-items:center;font-size:24px}
-.top h1{font-size:21px;margin:0 0 4px;letter-spacing:.8px}.top p{margin:0;color:#bfd0dc;font-size:12px}.top a{color:#dbecf7;font-size:12px}
-main{max-width:1200px;margin:auto;padding:24px 20px 70px}
-.headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.headline h2{font-size:27px;letter-spacing:-.4px;margin:0 0 6px}.muted{color:#677d8a;font-size:13px}
-.flex{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-.btn{border:1px solid #cad6dc;background:#fff;color:#18374b;border-radius:10px;padding:10px 14px;font-weight:650;line-height:1.4}
-.btn.primary{background:#14384f;border-color:#14384f;color:#fff}.btn.soft{background:#edf4f5}.btn:disabled{opacity:.55;cursor:not-allowed}
-.btn:hover:not(:disabled){filter:brightness(.97)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e0a25b;outline-offset:3px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
-.stat{background:#fff;border:1px solid #e2e6e7;border-radius:14px;padding:17px 20px;box-shadow:0 4px 15px rgba(20,45,55,.025)}
-.stat b{font-size:30px;display:block;margin:4px 0}.stat span{color:#7b8790;font-size:12px}
-.work{display:grid;grid-template-columns:320px minmax(0,1fr);gap:16px}
-.side,.detail{background:#fff;border:1px solid #e0e5e7;border-radius:16px;box-shadow:0 8px 24px rgba(16,40,59,.025)}
-.side{padding:16px;align-self:start}.side h3{font-size:14px;margin:2px 0 14px;color:#4b6272}
-.item{border:1px solid #e7e9e9;background:#fff;text-align:left;width:100%;padding:14px;border-radius:12px;margin:0 0 9px;display:block}
-.item.active{border-color:#417e91;background:#f0f7f6;box-shadow:inset 3px 0 #417e91}
-.item strong{display:block;margin-bottom:6px;font-size:15px}.item .sub{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:#71808a}
-.tiny{font-size:12px;color:#77909a}.detail{min-width:0;padding:23px}
-.section{margin:0 0 25px;padding:0 0 24px;border-bottom:1px solid #e7eaeb}.section:last-child{border:0;margin-bottom:0;padding-bottom:0}
-.detail h2{font-size:24px;margin:0 0 6px}.detail h3{font-size:16px;margin:0 0 13px}
-.quote{padding:16px 20px;border-radius:12px;background:#f6f3ec;border-left:3px solid #d7ae75;line-height:1.9;font-size:18px;font-weight:600;margin:12px 0}
-.chip{display:inline-block;background:#ecf2f3;border-radius:999px;padding:5px 11px;font-size:12px;color:#35616e}
-.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:18px}
-.step{padding:8px 4px;text-align:center;border-radius:7px;background:#e9edef;color:#778a97;font-size:11px;min-width:0}
-.step.current{background:#e4f1ed;color:#0c6659;font-weight:800}.step.done{background:#dce8ee;color:#355b74;font-weight:750}
-.notice{background:#fff6e8;border:1px solid #f3dcad;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.8}
-.tip{background:#eef5f6;border-radius:10px;padding:14px 16px;line-height:1.75;font-size:13px}
-.checks{padding-left:22px;margin:0}.checks li{margin:0 0 8px;line-height:1.6}
-.media{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
-.media-card{border:1px solid #e3e6e8;border-radius:12px;padding:8px;overflow:hidden;background:#fafbfb}
-.media-card img,.media-card video{display:block;width:100%;max-height:250px;object-fit:contain;border-radius:7px;background:#202b30}
-.media-card a{display:block;overflow-wrap:anywhere;font-size:12px;margin-top:8px}
-details summary{cursor:pointer;font-weight:700;color:#324f63}pre{white-space:pre-wrap;word-break:break-word;line-height:1.8;font:13px/1.8 inherit;color:#365267;max-height:420px;overflow:auto;background:#f7f9fa;padding:15px;border-radius:10px}
-.log{font-size:12px;color:#647682;padding:8px 0;border-bottom:1px solid #eef0f1}
-.warnings{background:#f8eeee;border:1px solid #f0dedb;color:#855149;border-radius:12px;font-size:12px;padding:13px;line-height:1.7;margin:18px 0}
-form{display:grid;gap:10px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-label{display:block;font-size:13px;font-weight:750;color:#3f5562}
-input,select,textarea{width:100%;padding:11px;background:white;border:1px solid #cbd4d9;border-radius:9px;margin-top:6px}
-textarea{min-height:105px;resize:vertical}
-.hidden{display:none}
-footer{margin-top:30px;font-size:12px;color:#7a8991;text-align:center}
-@media(max-width:850px){.work{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(1,minmax(0,1fr))}.item{margin-bottom:7px}}
-@media(max-width:570px){.top{padding:18px 16px}.top h1{font-size:18px}.logo{width:43px;height:43px}.headline h2{font-size:23px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:12px}.detail{padding:17px}.flow{grid-template-columns:repeat(3,1fr);gap:5px}.quote{font-size:16px}.form-row{grid-template-columns:1fr}}
+:root{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#213442;background:#f4f5f4}*{box-sizing:border-box}
+body{margin:0}button,input,textarea,select{font:inherit}button{cursor:pointer}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+header{background:#182b3b;color:#fff;padding:24px max(20px,calc((100vw - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}.brandmark{width:48px;height:48px;display:grid;place-items:center;background:#c89a63;color:#142734;border-radius:13px;font-size:25px}
+header h1{margin:0;font-size:22px;letter-spacing:.7px}header p{margin:4px 0 0;color:#b8cad4;font-size:12px}
+.headerlink{border:1px solid #728897;border-radius:9px;padding:9px 12px;font-size:12px;white-space:nowrap}
+main{max-width:1160px;margin:auto;padding:26px 20px 60px}
+.titlebar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.titlebar h2{font-size:25px;margin:0 0 5px}.hint{font-size:13px;color:#697a86}
+.buttons{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+button,.buttonlink{border:1px solid #c9d4d9;border-radius:10px;background:#fff;padding:11px 14px;font-weight:650;line-height:1.3;font-size:13px;color:#253e50}
+button.mainbtn,.buttonlink.mainbtn{background:#20455e;color:white;border-color:#20455e}
+button.quiet{background:#f3f7f7}
+button.warn{background:#fff8ec;color:#916128;border-color:#e9d5b0}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:hover:not(:disabled),a.buttonlink:hover{filter:brightness(.97)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #d9ab76;outline-offset:2px}
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:19px}
+.metric{background:white;border:1px solid #e2e5e5;border-radius:14px;padding:15px 18px}
+.metric .label{font-size:12px;color:#71818a}.metric strong{font-size:27px;display:block;margin-top:5px}
+.dashboard{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start;gap:16px}
+.left,.right{background:#fff;border:1px solid #e1e5e6;border-radius:16px;box-shadow:0 3px 14px #1d36420a}
+.left{padding:15px}.right{padding:22px;min-height:550px}
+.left h3{font-size:14px;margin:5px 0 12px;color:#405769}
+.film{display:block;width:100%;text-align:left;background:white;border:1px solid #e7ecec;padding:15px 13px;border-radius:11px;margin-bottom:9px}
+.film.selected{border:1px solid #4c8598;background:#eff7f6;box-shadow:inset 3px 0 #4c8598}
+.film strong{display:block;font-size:15px;margin-bottom:8px}.film span{font-size:12px;color:#67808d}
+.film em{font-size:11px;font-style:normal;border-radius:999px;background:#e9f0f2;padding:4px 8px;float:right;color:#4f6b77}
+.small{font-size:12px;color:#788891;line-height:1.75}
+.section{padding-bottom:23px;margin-bottom:24px;border-bottom:1px solid #e6eaeb}.section:last-child{margin-bottom:0;border-bottom:0;padding-bottom:0}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.right h2{font-size:25px;margin:9px 0 8px}.right h3{font-size:17px;margin:0 0 14px}
+.chip{font-size:12px;color:#326279;background:#eef4f5;border-radius:100px;padding:6px 11px;display:inline-block}
+.quote{font-size:19px;line-height:1.85;padding:16px 19px;background:#faf6ed;border-left:3px solid #cba06a;border-radius:9px;margin:16px 0 14px}
+.progress{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:15px}
+.progress span{border-radius:7px;text-align:center;font-size:11px;padding:11px 4px;background:#edf0f2;color:#71838f}
+.progress span.current{background:#dceee8;color:#236b58;font-weight:800}.progress span.past{background:#e1eaf0;color:#355f79}
+.callout{background:#edf5f5;border:1px solid #dbe7e6;border-radius:11px;padding:14px;line-height:1.85;font-size:13px}
+.callout strong{font-size:14px}
+.focal{padding-left:22px;font-size:13px;color:#495f6c;line-height:1.8}.focal li{margin-bottom:7px}
+details summary{cursor:pointer;font-weight:700;font-size:13px;color:#314d5e}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto;padding:15px;font:13px/1.85 system-ui,"Microsoft YaHei",sans-serif;background:#f5f7f8;border-radius:10px;margin:11px 0}
+label{display:block;font-size:13px;color:#48616f;font-weight:700;margin-bottom:12px}
+textarea,input,select{width:100%;border:1px solid #cbd7db;background:#fff;color:#263b4b;border-radius:9px;margin-top:7px;padding:11px 12px}
+textarea{min-height:100px;resize:vertical;line-height:1.6}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:9px 0 16px}
+.checks label{display:flex;gap:8px;align-items:center;margin:0;padding:9px 10px;border:1px solid #e1e8e9;border-radius:8px;font-size:12px;font-weight:500;color:#42606d}
+.checks input{width:auto;margin:0}
+.previewbox{margin:15px 0;border:1px dashed #bdcbd1;padding:14px;border-radius:12px}
+.mediaarea{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}
+.mediaarea img,.mediaarea video{display:block;width:100%;max-height:260px;object-fit:contain;background:#1b2932;border-radius:9px}
+.banner{background:#fff7eb;color:#806233;border:1px solid #e9d9ba;border-radius:11px;padding:13px 15px;line-height:1.8;margin-top:18px;font-size:12px}
+.formbox{background:#fff;padding:18px;border:1px solid #e1e5e6;border-radius:14px;margin-bottom:18px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hidden{display:none!important}
+.mini-link{font-size:12px;color:#28647f;text-decoration:underline}
+.backup{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+footer{text-align:center;font-size:12px;color:#86949b;padding:25px 5px}
+@media(max-width:860px){.dashboard{grid-template-columns:1fr}.left{display:flex;gap:8px;overflow-x:auto;align-items:stretch}.left h3{display:none}.film{flex:0 0 200px;margin:0}.right{min-height:400px}}
+@media(max-width:530px){header{padding:18px 15px}header h1{font-size:18px}.brandmark{width:42px;height:42px}.headerlink{padding:8px;font-size:11px}main{padding:18px 12px 40px}.titlebar h2{font-size:22px}.right{padding:17px}.quote{font-size:16px}.overview{gap:7px}.metric{padding:10px}.metric strong{font-size:23px}.progress{gap:3px}.progress span{font-size:10px;padding:8px 2px}.checks{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header class="top">
- <div class="brand"><div class="logo">🎞</div><div><h1>神级评论电影工厂</h1><p>把一句值得记住的话，拍成一部11秒电影。</p></div></div>
- <a href="https://github.com/1464356758/douyin-XT" target="_blank" rel="noopener">GitHub仓库 ↗</a>
-</header>
+<header><div class="brand"><div class="brandmark">🎞</div><div><h1>神级评论电影工厂</h1><p>纯GPT聊天创作 · 你亲自审核 · 11秒电影</p></div></div><a class="headerlink" href="https://chatgpt.com/" target="_blank" rel="noopener">打开 ChatGPT ↗</a></header>
 <main>
- <section class="headline"><div><h2>电影制作工作台</h2><div class="muted">GPT出图 · 你审画面 · 即梦图生视频 · 你审成片</div></div>
- <div class="flex"><button id="refresh" class="btn soft">↻ 刷新进度</button><button id="toggle-new" class="btn primary">＋ 新增作品</button></div></section>
- <div id="new-box" class="section hidden" style="background:white;border:1px solid #e1e5e7;padding:20px;border-radius:16px">
-  <h3>新增一部电影</h3><p class="muted">填写完整原稿后，会打开GitHub新Issue，使用你的GitHub账户提交即创建项目。</p>
-  <form id="new-form">
-   <div class="form-row"><label>作品名<input id="new-title" maxlength="80" required placeholder="例如：风把春天吹醒了"></label><label>片型<select id="new-kind"><option value="H">真人微剧情</option><option value="S">纯风景</option><option value="C" selected>真人＋风景</option></select></label></div>
-   <label>核心文案<textarea id="new-quote" maxlength="300" required placeholder="这部电影必须保留的那句话"></textarea></label>
-   <label>原稿与11秒分镜<textarea id="new-original" maxlength="3500" required placeholder="粘贴完整的原稿、时间轴、对白、配乐和结尾。"></textarea></label>
-   <div class="flex"><button class="btn primary" type="submit">打开GitHub，创建正式项目 ↗</button><button class="btn" type="button" id="new-cancel">取消</button></div>
-  </form>
- </div>
- <section class="stats" id="stats"><div class="stat">读取中…</div></section>
- <div class="work"><aside class="side"><h3>📁 正式影片</h3><div id="films">正在读取GitHub状态…</div></aside><section class="detail" id="detail"><p>请选择左边的影片。</p></section></div>
- <div class="warnings">🔒 <b>隐私与权限：</b>这是公开GitHub仓库。你上传到Issue的图片、视频预览和返修记录也会公开。未公开的商业素材不要在这里上传高清原片。网页不收集密码和令牌；只有仓库主人在GitHub发出的审核指令会改变正式状态。</div>
- <footer>神级评论电影工厂 V1.0 · GitHub 是唯一进度事实源 · 网页只读，审核在GitHub登录完成</footer>
+ <div class="titlebar"><div><h2>电影制作工作台</h2><div class="hint">不接API、不设自动化，图片反复改到满意，再开始视频。</div></div><div class="buttons"><button id="new-open" class="mainbtn">＋ 新建作品</button><a href="https://github.com/1464356758/douyin-XT" target="_blank" rel="noopener" class="buttonlink">GitHub原稿 ↗</a></div></div>
+ <section id="new-project" class="formbox hidden">
+ <h3>新增作品（仅保存在你的当前浏览器）</h3><div class="formgrid"><label>作品名<input id="new-title" maxlength="100" placeholder="作品标题"></label><label>类型<select id="new-kind"><option>真人剧情</option><option>诗意风景</option><option selected>真人＋风景</option></select></label></div>
+ <label>核心文案<textarea id="new-quote" maxlength="600" placeholder="最终要出现在视频里的那句文案"></textarea></label>
+ <label>冻结原稿<textarea id="new-original" maxlength="10000" placeholder="包括0～3秒、3～7秒、7～11秒分镜、对白、音乐、结尾……"></textarea></label>
+ <div class="buttons"><button id="new-save" class="mainbtn">保存到本机作品库</button><button id="new-cancel">取消</button></div>
+ </section>
+ <section id="overview" class="overview"><div class="metric">读取中…</div></section>
+ <div class="dashboard"><aside class="left"><h3>作品列表</h3><div id="films">正在读取冻结原稿…</div></aside><article class="right" id="details">正在加载…</article></div>
+ <div class="banner">🔒 隐私说明：这里不连接你的ChatGPT会话，也不会上传图片／视频。选取本机文件只做临时预览；工作进度存在当前浏览器。如果你换手机或清除浏览器数据，记得先备份。网页的“复制返修指令”不会自己调用AI出图。</div>
+ <div class="backup"><button id="backup">↓ 备份工作进度</button><button id="restore">↑ 恢复进度</button><input type="file" id="restore-file" accept=".json,application/json" class="hidden"><button id="reset" class="warn">重置本机进度</button></div>
+ <footer>V2.0 纯聊天版 · 原稿来自GitHub · 所有图片及成片定稿由你决定</footer>
 </main>
 <script>
 "use strict";
-const REPO="1464356758/douyin-XT";
-const ISSUE="https://github.com/"+REPO+"/issues/";
-const LABELS={IMAGE_PREP:"等待GPT出图",IMAGE_REVIEW:"需要你审核图片",IMAGE_REWORK:"图片返修中",VIDEO_PREP:"等待图生视频",VIDEO_REVIEW:"需要你审核成片",VIDEO_REWORK:"视频返修中",READY_PUBLISH:"成片通过·可发布",PUBLISHED:"已发布"};
-const STEPS=["选择原稿","GPT出图","审图片","图生视频","审成片","发布"];
-let db={projects:[]},selected=null;
-function esc(x){return String(x==null?"":x).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-function stageAt(s){if(s==="IMAGE_PREP"||s==="IMAGE_REWORK")return 1;if(s==="IMAGE_REVIEW")return 2;if(s==="VIDEO_PREP"||s==="VIDEO_REWORK")return 3;if(s==="VIDEO_REVIEW")return 4;return 5}
-function colorStage(s){return s==="IMAGE_REVIEW"||s==="VIDEO_REVIEW"?"#a45322":s==="PUBLISHED"?"#146d59":"#38647f"}
-function linkIssue(n){return ISSUE+Number(n)}
-function urlOK(u){try{const x=new URL(u);return x.protocol==="https:"&&(["github.com","user-images.githubusercontent.com","raw.githubusercontent.com"].includes(x.hostname))}catch(e){return false}}
-function stats(){
- const p=db.projects||[],review=p.filter(x=>["IMAGE_REVIEW","VIDEO_REVIEW"].includes(x.stage)).length,finished=p.filter(x=>x.stage==="PUBLISHED").length;
- document.getElementById("stats").innerHTML=[
- ["正式影片",p.length],["等待你审核",review],["成片审核通过",p.filter(x=>["READY_PUBLISH","PUBLISHED"].includes(x.stage)).length],["已发布",finished]
- ].map(function(x){return '<div class="stat"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>'}).join("");
+const STORE="douyin_xt_chat_v2";
+const LABEL={IMAGE_FIRST:"制作图片",IMAGE_REVIEW:"你审图片",VIDEO_FIRST:"制作视频",VIDEO_REVIEW:"你审成片",DONE:"已定稿"};
+const STEPS=["图片指令","图片审核","视频指令","视频审核","定稿"];
+const PROBLEMS={IMAGE:["原稿跑偏","镜头视角","构图景别","脸/人物不一致","手部不自然","光线不真实","画面AI感","情绪不对"],VIDEO:["原稿时序不对","动作僵硬","人物变形","镜头不连贯","声音/口型错误","字幕提前或错字","配乐不合适","结尾无余味"]};
+let presets=[],local={states:{},custom:[]},chosen=null,mediaUrls=[];
+function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(x){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x]})}
+function getAll(){return presets.concat(local.custom)}
+function project(){return getAll().find(p=>p.id===chosen)}
+function st(id){if(!local.states[id])local.states[id]={stage:"IMAGE_FIRST",imageRound:0,videoRound:0,logs:[],lastNote:""};return local.states[id]}
+function save(){try{localStorage.setItem(STORE,JSON.stringify(local))}catch(e){alert("无法保存浏览器进度，请使用备份功能。")}}
+function log(p,act,note){const s=st(p.id);s.logs.unshift({when:new Date().toLocaleString(),action:act,note:note||""});s.logs=s.logs.slice(0,30);save();render()}
+function lookup(){try{let d=JSON.parse(localStorage.getItem(STORE)||"null");if(d&&d.states&&Array.isArray(d.custom))local=d}catch(e){}}
+function stateStep(name){return ["IMAGE_FIRST","IMAGE_REVIEW","VIDEO_FIRST","VIDEO_REVIEW","DONE"].indexOf(name)}
+function setStage(x){const p=project();if(!p)return;st(p.id).stage=x;log(p,"你手动确认进入 "+LABEL[x]);}
+function summary(){const all=getAll(),rev=all.filter(p=>["IMAGE_REVIEW","VIDEO_REVIEW"].includes(st(p.id).stage)).length,done=all.filter(p=>st(p.id).stage==="DONE").length;document.getElementById("overview").innerHTML=[["正式作品",all.length],["等待你审核",rev],["你已确认定稿",done]].map(v=>'<div class="metric"><div class="label">'+v[0]+'</div><strong>'+v[1]+'</strong></div>').join("")}
+function list(){document.getElementById("films").innerHTML=getAll().map(p=>'<button class="film '+(p.id===chosen?"selected":"")+'" data-film="'+esc(p.id)+'"><strong>'+esc(p.title)+'</strong><span>'+esc(p.kind_label||p.kind)+'</span><em>'+esc(LABEL[st(p.id).stage])+'</em></button>').join("")}
+function clearMedia(){mediaUrls.forEach(u=>URL.revokeObjectURL(u));mediaUrls=[]}
+function copyText(str){return navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(str).catch(()=>{window.prompt("请复制下面的GPT聊天指令",str)}):Promise.resolve(window.prompt("请复制下面的GPT聊天指令",str))}
+function promptText(p,type,feedback){
+ const header="【神级评论电影工厂 V2.0｜"+type+"】\n你是GPT聊天模式里的电影导演与分镜提示词专家。只有用户可以批准图片和成片。请保留原稿的文案、剧情逻辑、对白秒点、结尾方式，不能擅改。\n\n【作品】"+p.title+"\n【类型】"+(p.kind_label||p.kind)+"\n【核心文案】"+p.quote+"\n\n【冻结原稿】\n"+p.original+"\n\n【特别审核点】\n"+(p.review_focus||[]).map((v,i)=>(i+1)+". "+v).join("\n")+"\n\n";
+ if(type==="图片首稿")return header+"只执行图片阶段：\n1. 从原稿拆解分镜，每个镜头给可复制到GPT出图的超详细提示词（9:16竖屏、真实摄影质感）。\n2. 首先给统一的人物外貌／场景／道具／光照锚点，锁定跨镜头一致性。\n3. 每镜头写清摄影机位置、视角、景别、构图、人物动作瞬间、禁止生成的错误。\n4. 每镜头列我应人工审核的3个细节，尤其是视角与人物／手部。\n5. 需要我指示时再实际生图；我会反复让你修图，直到我明确说「图片满意」。现在不要进入视频阶段。";
+ if(type==="图片返修")return header+"【我审核后指出的问题】\n"+feedback+"\n\n请先基于本聊天里我上传的实际图片审查可见画面；如果看不到，请如实说明并让我重新上传。只修指出的问题，分成【哪些绝对保留】【具体改哪些】【新版完整的GPT图片编辑／重新生成指令】【返修后的重点检查】。不要擅改故事、人物、光影和我未要求修改的内容。未获我明确「图片满意」不得切换视频。";
+ if(type==="视频首稿")return header+"我已亲自确认参考图片满意。请以我在当前聊天确认的图片为首帧/镜头参考；若看不到我定稿的图片，请让我上传，不能编造已经看过。\n只输出视频制作阶段：按原稿的确切秒数逐镜头写出图生视频提示词、动作、人物表情、运镜、镜头衔接、错误画面禁止项、配音/环境声/音乐/字幕时点及剪辑顺序。视频如果必须使用第三方工具，请给明确操作方法；不要声称已经自动生成视频。最后给我最多5条人工验收重点。未经我说「视频定稿」不能归档。";
+ if(type==="视频返修")return header+"【实际视频存在的问题／时间码】\n"+feedback+"\n\n如你能读取我在聊天中上传的视频，请检查实际视频；看不到要明确说不能目视验证。提供【问题时间码与成因】【已满意部分冻结】【需要重做的镜头完整图生视频指令】【音乐/字幕/剪辑局部修复方案】【重新验收的重点】。不能借返修改动原稿情绪反转、对白出现时间及结尾，不能替我确认定稿。";
+ return header+"我已确认视频定稿。请输出发布前最后检查清单、最终文案、原稿一致性、已经确认的分镜和一段可复制的归档摘要。不要虚构播放数据。";
 }
-function choose(id){selected=id; history.replaceState(null,"",location.pathname+"?film="+encodeURIComponent(id));draw();}
-function films(){document.getElementById("films").innerHTML=(db.projects||[]).map(function(p){
- return '<button class="item '+(p.id===selected?"active":"")+'" data-film="'+esc(p.id)+'"><strong>'+esc(p.title)+'</strong><div class="sub"><span>'+esc(p.kind_label)+'</span><span style="color:'+colorStage(p.stage)+'">'+esc(LABELS[p.stage]||p.stage)+'</span></div></button>'
- }).join("");}
-function mediaView(urls,type){
- if(!urls||!urls.length)return '<div class="tip">还没有提交可以审核的实际素材。必须在GitHub工单上传真实图片或视频，不能只凭文字说已经做好。</div>';
- return '<div class="media">'+urls.filter(urlOK).map(function(u,i){
-  return '<div class="media-card">'+(type==="image"?'<a href="'+esc(u)+'" target="_blank" rel="noopener"><img src="'+esc(u)+'" loading="lazy" alt="第'+(i+1)+'张待审图"></a>':'<video src="'+esc(u)+'" controls playsinline preload="metadata"></video>')+'<a href="'+esc(u)+'" target="_blank" rel="noopener">打开原始素材 '+(i+1)+' ↗</a></div>'
- }).join("")+'</div>';
+function feedbackText(){const text=document.getElementById("feedback")?.value?.trim()||"";const checks=[...document.querySelectorAll(".fault:checked")].map(x=>x.value);return [checks.length?"问题类别："+checks.join("、"):"",text].filter(Boolean).join("\n")}
+async function copyPrompt(type){
+ const p=project();if(!p)return;
+ const isFix=type.indexOf("返修")>=0;let f=isFix?feedbackText():"";
+ if(isFix&&!f){alert("请先勾选问题或填写具体返修意见，这样GPT才能精准修改。");return}
+ await copyText(promptText(p,type,f));if(isFix){const s=st(p.id);if(type==="图片返修"){s.imageRound++;s.stage="IMAGE_FIRST"}else{s.videoRound++;s.stage="VIDEO_FIRST"}s.lastNote=f;log(p,"复制"+type+" V"+(type==="图片返修"?s.imageRound:s.videoRound),f)}
+ else{log(p,"复制"+type)}
 }
-function actions(p){
- const stage=p.stage,issue=linkIssue(p.issue);
- let command="",hint="";
- if(stage==="IMAGE_PREP"||stage==="IMAGE_REWORK"){command="/submit-image";hint="先用GPT生成并检查分镜图片；在工单里写指令，然后把图片拖进同一条评论。"}
- if(stage==="IMAGE_REVIEW"){command="/approve-image";hint="必须看实际像素：人物是否一致？视角、构图、手部、物品、文案时间线是否正确？有问题请返修。"}
- if(stage==="VIDEO_PREP"||stage==="VIDEO_REWORK"){command="/submit-video";hint="即梦或可灵图生视频，剪映完成11秒。提交可公开的视频预览供人工终审。"}
- if(stage==="VIDEO_REVIEW"){command="/approve-video";hint="必须完整播放，检查动作、人物、对白出现时间、音乐、结尾字幕以及抖音AI标识。"}
- if(stage==="READY_PUBLISH"){command="/published https://www.douyin.com/video/";hint="你已亲自通过成片，可以在抖音发布。发布后把实际视频地址登记到工单。"}
- if(stage==="PUBLISHED"){command="/stats views=100 likes=10 shares=2 follows=1";hint="发布后记录24小时、72小时与7天的表现；这些数据由你手动提供，系统不虚构。"}
- let out='<div class="tip"><b>下一步：</b>'+esc(hint)+'</div><div class="flex" style="margin-top:14px">';
- if(command)out+='<button class="btn soft" data-copy="'+esc(command)+'">复制下一步指令</button>';
- out+='<a class="btn primary" href="'+esc(issue)+'" target="_blank" rel="noopener">打开GitHub审核工单 ↗</a></div>';
- if(stage==="IMAGE_REVIEW"||stage==="VIDEO_REVIEW"){
-  const isImage=stage==="IMAGE_REVIEW";
-  out+='<div class="flex" style="margin-top:10px"><button class="btn" data-copy="'+(isImage?"/approve-image":"/approve-video")+'">✅ 复制审核通过</button><button class="btn" data-copy="'+(isImage?"/revise-image 镜头视角／人物／手部需要修改：":"/revise-video 画面／动作／声音需要修改：")+'">↩ 复制返修意见</button></div>';
+function photos(stage){
+ const x=stage==="IMAGE_FIRST"||stage==="IMAGE_REVIEW",name=x?"图片":"视频";
+ return '<div class="previewbox"><strong>本机临时预览 '+name+'（可选）</strong><p class="small">仅在你的设备显示，不会上传GitHub，也不会自动交给GPT。若需要GPT审核，请在聊天中另外发送原图／视频。</p><input id="media-input" type="file" accept="'+(x?"image/*":"video/*")+'" '+(x?"multiple":"")+'><div class="mediaarea" id="mediaarea"></div></div>';
+}
+function reviewUI(isImage){
+ const label=isImage?"图片":"视频",s=st(chosen);
+ return '<h3>🔍 你来审核'+label+'细节</h3><p class="small">重点审核，满意才批准；哪里不对就勾选并告诉GPT。返修次数不设上限。</p><div class="checks">'+PROBLEMS[isImage?"IMAGE":"VIDEO"].map(x=>'<label><input class="fault" type="checkbox" value="'+esc(x)+'"> '+esc(x)+'</label>').join("")+'</div><label>具体意见（例如：第二张镜头从俯拍改平视，人物不要变）<textarea id="feedback" placeholder="第几张／第几秒、当前错误、想改成什么、哪些保持不变……">'+esc(s.lastNote||"")+'</textarea></label><div class="buttons"><button class="warn" data-action="'+(isImage?"revise-image":"revise-video")+'">↺ 复制'+label+'重新生成／返修指令</button><button class="mainbtn" data-action="'+(isImage?"approve-image":"approve-video")+'">✓ 我亲自确认'+label+(isImage?"满意":"定稿")+'</button><a class="buttonlink" href="https://chatgpt.com/" target="_blank" rel="noopener">打开GPT ↗</a></div>';
+}
+function detail(){
+ const p=project();if(!p){document.getElementById("details").textContent="还没有作品。请先新建。";return}
+ const s=st(p.id),stage=s.stage,n=stateStep(stage);
+ let t='<section class="section"><div class="topline"><span class="chip">'+esc(p.id)+" · "+esc(p.kind_label||p.kind)+'</span><span class="chip">'+LABEL[stage]+'</span></div><h2>'+esc(p.title)+'</h2><div class="quote">'+esc(p.quote)+'</div><div class="progress">'+STEPS.map((x,i)=>'<span class="'+(i===n?"current":i<n?"past":"")+'">'+(i+1)+'.'+x+'</span>').join("")+'</div></section>';
+ t+='<section class="section"><h3>📜 冻结原稿</h3><details><summary>查看完整11秒脚本、对白、配乐与结尾</summary><pre>'+esc(p.original)+'</pre></details><h3 style="margin-top:18px">⚑ 本作品必须注意</h3><ol class="focal">'+(p.review_focus||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol></section>';
+ t+='<section class="section"><h3>🎯 现在只做这一件事</h3>';
+ if(stage==="IMAGE_FIRST"){
+  t+='<div class="callout"><strong>图片阶段 · 第'+(s.imageRound+1)+'轮</strong><div>复制当前作品的详细图片指令，去GPT同一个聊天生成分镜图片。图片还未由你确认满意，禁止提前开始视频。</div></div><div class="buttons" style="margin-top:14px"><button class="mainbtn" data-action="copy-image">复制图片首稿／新图指令</button><a class="buttonlink" href="https://chatgpt.com/" target="_blank" rel="noopener">打开GPT ↗</a><button data-action="image-ready">我已得到新图片，开始审核</button></div>'+photos(stage);
+ }else if(stage==="IMAGE_REVIEW"){
+  t+=photos(stage)+reviewUI(true);
+ }else if(stage==="VIDEO_FIRST"){
+  t+='<div class="callout"><strong>视频阶段 · 第'+(s.videoRound+1)+'轮</strong><div>只有你明确确认过图片后才能开始。GPT会根据最终图片制作图生视频和剪映步骤。视频生成或编辑仍需可用的视频工具；这里不自动产生视频。</div></div><div class="buttons" style="margin-top:14px"><button class="mainbtn" data-action="copy-video">复制视频首稿／新视频指令</button><a class="buttonlink" href="https://chatgpt.com/" target="_blank" rel="noopener">打开GPT ↗</a><button data-action="video-ready">我已得到新视频，开始审核</button></div>'+photos(stage);
+ }else if(stage==="VIDEO_REVIEW"){
+  t+=photos(stage)+reviewUI(false);
+ }else if(stage==="DONE"){
+  t+='<div class="callout"><strong>🎉 已由你手动确认定稿</strong><div>这里只表示你按了「视频定稿」，并非网站或AI完成了实际成片技术检验。</div></div><div class="buttons" style="margin-top:13px"><button class="mainbtn" data-action="archive">复制归档指令</button><button data-action="reopen-video">我还要修改成片</button><a class="buttonlink" href="https://chatgpt.com/" target="_blank" rel="noopener">打开GPT ↗</a></div>';
  }
- out+='<p class="tiny" style="margin-top:10px">操作方法：点击复制，再去工单评论粘贴。GitHub Actions处理后刷新网页。附件必须与提交命令放在同一条评论。</p>';
- return out;
+ t+='</section><section class="section"><details><summary>📖 我的阶段操作与返修记录（仅当前浏览器）</summary><div style="margin-top:12px">'+(s.logs.length?s.logs.map(x=>'<p class="small">'+esc(x.when)+' · '+esc(x.action)+(x.note?" · "+esc(x.note):"")+'</p>').join(""):'<p class="small">还没有操作记录。</p>')+'</div></details></section>';
+ document.getElementById("details").innerHTML=t;
 }
-function draw(){
- stats();films(); const p=(db.projects||[]).find(x=>x.id===selected);
- if(!p){document.getElementById("detail").innerHTML="<p>暂时没有影片。</p>";return}
- let progress='<div class="flow">'+STEPS.map(function(s,i){return '<div class="step '+(i===stageAt(p.stage)?"current":i<stageAt(p.stage)?"done":"")+'">'+(i+1)+'. '+s+'</div>'}).join("")+'</div>';
- let focus=(p.review_focus||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
- const promptUrl="https://github.com/"+REPO+"/blob/main/prompts/"+encodeURIComponent(p.id)+".md";
- const notes=(p.notes||[]).slice().reverse().slice(0,5).map(n=>'<div class="log">↩ '+esc(n.type==="image"?"图片":"视频")+'：'+esc(n.text)+'</div>').join("");
- const audit=(p.history||[]).slice().reverse().slice(0,8).map(h=>'<div class="log">'+esc(h.at)+' ｜ '+esc(h.action)+' ｜ '+esc(h.detail||"")+'</div>').join("");
- let body='<div class="section"><div class="flex"><span class="chip">'+esc(p.id)+' · '+esc(p.kind_label)+'</span><span class="chip" style="color:'+colorStage(p.stage)+'">'+esc(LABELS[p.stage]||p.stage)+'</span></div><h2 style="margin-top:13px">'+esc(p.title)+'</h2><div class="quote">'+esc(p.quote)+'</div>'+progress+'</div>';
- body+='<div class="section"><h3>👀 这一步需要你做什么</h3>'+actions(p)+'</div>';
- body+='<div class="section"><h3>🔎 重点审核哪些视觉细节</h3><ol class="checks">'+focus+'</ol></div>';
- if(p.last_image_batch&&p.last_image_batch.length)body+='<div class="section"><h3>🖼 当前图片 V'+Number(p.image_revision||0)+'</h3>'+mediaView(p.last_image_batch,"image")+'</div>';
- if(p.last_video_batch&&p.last_video_batch.length)body+='<div class="section"><h3>🎥 当前视频 V'+Number(p.video_revision||0)+'</h3>'+mediaView(p.last_video_batch,"video")+'</div>';
- body+='<div class="section"><h3>📜 冻结原稿，不准擅改</h3><details><summary>点击展开完整原稿、对白与11秒时间线</summary><pre>'+esc(p.original)+'</pre></details><p class="muted" style="margin-top:12px"><a target="_blank" rel="noopener" href="'+esc(promptUrl)+'">打开专属GPT出图和视频提示词 ↗</a> （新建影片可先使用原稿）</p></div>';
- if(notes)body+='<div class="section"><h3>✍️ 返修记录</h3>'+notes+'</div>';
- if(p.published_url)body+='<div class="section"><h3>📈 已发布</h3><p><a href="'+esc(p.published_url)+'" target="_blank" rel="noopener">打开抖音成片 ↗</a></p><p>播放 '+Number((p.stats||{}).views||0)+' · 点赞 '+Number((p.stats||{}).likes||0)+' · 分享 '+Number((p.stats||{}).shares||0)+' · 新关注 '+Number((p.stats||{}).follows||0)+'</p></div>';
- body+='<div class="section"><details><summary>🧾 历史记录与版本追溯</summary>'+audit+'</details></div>';
- document.getElementById("detail").innerHTML=body;
+function render(){summary();list();detail()}
+function choose(id){clearMedia();chosen=id;render();try{history.replaceState(null,"",location.pathname+"?film="+encodeURIComponent(id))}catch(e){}}
+function handleMedia(el){const target=document.getElementById("mediaarea");if(!target)return;clearMedia();target.innerHTML="";[...el.files].slice(0,9).forEach(f=>{const u=URL.createObjectURL(f);mediaUrls.push(u);const x=document.createElement(f.type.startsWith("video/")?"video":"img");x.src=u;if(x.tagName==="VIDEO"){x.controls=true;x.playsInline=true}x.title=f.name;target.appendChild(x)})}
+function stageMove(action){
+ const p=project(),s=st(p.id);
+ if(action==="image-ready"&&s.stage==="IMAGE_FIRST"){s.stage="IMAGE_REVIEW";log(p,"开始由你审图片");return}
+ if(action==="video-ready"&&s.stage==="VIDEO_FIRST"){s.stage="VIDEO_REVIEW";log(p,"开始由你审实际视频");return}
+ if(action==="approve-image"&&s.stage==="IMAGE_REVIEW"){if(confirm("只有你对实际图片满意，才确认进入视频。确认图片已满意？")){s.stage="VIDEO_FIRST";log(p,"你明确确认图片满意");return}}
+ if(action==="approve-video"&&s.stage==="VIDEO_REVIEW"){if(confirm("你已实际检查视频，并确认视频定稿？")){s.stage="DONE";log(p,"你明确确认视频定稿");return}}
+ if(action==="reopen-video"&&s.stage==="DONE"){s.stage="VIDEO_REVIEW";log(p,"你撤回视频定稿，继续返修");return}
 }
-function decodeBase64(b64){const bytes=Uint8Array.from(atob(b64.replace(/\s/g,"")),c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)}
-async function refresh(fresh){
- const button=document.getElementById("refresh");button.disabled=true;button.textContent="刷新中…";
- try{
-  let result;
-  if(fresh){
-    const url="https://api.github.com/repos/"+REPO+"/contents/data/projects.json?ref=main&t="+Date.now();
-    const resp=await fetch(url,{cache:"no-store"});
-    if(resp.ok){const blob=await resp.json();result=JSON.parse(decodeBase64(blob.content))}
-  }
-  if(!result){const response=await fetch("./data/projects.json?t="+Date.now(),{cache:"no-store"});if(!response.ok)throw Error("状态文件不可读");result=await response.json()}
-  db=result;const fromUrl=new URLSearchParams(location.search).get("film");
-  if(!selected || !(db.projects||[]).some(p=>p.id===selected))selected=(db.projects||[]).find(p=>p.id===fromUrl)?.id||(db.projects||[])[0]?.id;
-  draw();
- }catch(error){document.getElementById("films").textContent="读取失败，请检查GitHub Pages部署和网络："+error.message}
- finally{button.disabled=false;button.textContent="↻ 刷新进度"}
-}
-document.getElementById("films").addEventListener("click",function(e){const el=e.target.closest("[data-film]");if(el)choose(el.dataset.film)});
-document.getElementById("detail").addEventListener("click",async function(e){const el=e.target.closest("[data-copy]");if(!el)return;const s=el.dataset.copy;try{await navigator.clipboard.writeText(s);const old=el.textContent;el.textContent="已复制 ✓";setTimeout(()=>el.textContent=old,1500)}catch(_){window.prompt("请复制指令",s)}});
-document.getElementById("refresh").addEventListener("click",()=>refresh(true));
-function newVis(show){document.getElementById("new-box").classList.toggle("hidden",!show)}
-document.getElementById("toggle-new").addEventListener("click",()=>newVis(true));
-document.getElementById("new-cancel").addEventListener("click",()=>newVis(false));
-document.getElementById("new-form").addEventListener("submit",function(e){
- e.preventDefault();const d={title:document.getElementById("new-title").value.trim(),kind:document.getElementById("new-kind").value,quote:document.getElementById("new-quote").value.trim(),original:document.getElementById("new-original").value.trim()};
- if(!d.title||!d.quote||!d.original)return;
- const payload=JSON.stringify(d);
- const body="<!-- FILM_CREATE_V1\n"+payload+"\n-->\n\n**新增正式影片：**"+d.title+"\n\n**核心文案：**"+d.quote+"\n\n请使用同一Issue上传图片或视频预览，审核指令参考仓库README。";
- const url="https://github.com/"+REPO+"/issues/new?title="+encodeURIComponent("[新片] "+d.title)+"&body="+encodeURIComponent(body);
- window.open(url,"_blank","noopener,noreferrer");
+document.getElementById("films").addEventListener("click",e=>{const b=e.target.closest("button[data-film]");if(b)choose(b.dataset.film)});
+document.getElementById("details").addEventListener("change",e=>{if(e.target.id==="media-input")handleMedia(e.target)});
+document.getElementById("details").addEventListener("click",async e=>{
+ const b=e.target.closest("button[data-action]");if(!b)return;const a=b.dataset.action;
+ if(a==="copy-image")await copyPrompt("图片首稿");
+ else if(a==="revise-image")await copyPrompt("图片返修");
+ else if(a==="copy-video")await copyPrompt("视频首稿");
+ else if(a==="revise-video")await copyPrompt("视频返修");
+ else if(a==="archive")await copyPrompt("归档");
+ else stageMove(a);
 });
-refresh(false);
+document.getElementById("new-open").addEventListener("click",()=>document.getElementById("new-project").classList.remove("hidden"));
+document.getElementById("new-cancel").addEventListener("click",()=>document.getElementById("new-project").classList.add("hidden"));
+document.getElementById("new-save").addEventListener("click",()=>{
+ const title=document.getElementById("new-title").value.trim(),quote=document.getElementById("new-quote").value.trim(),original=document.getElementById("new-original").value.trim(),kind=document.getElementById("new-kind").value;
+ if(!title||!quote||!original){alert("请填写作品名、核心文案和完整冻结原稿。");return}
+ const id="L"+Date.now();local.custom.push({id,title,quote,original,kind_label:kind,review_focus:["画面忠于冻结原稿","人物/环境/镜头视角一致","对白、配乐和结尾秒点不变"]});save();document.getElementById("new-project").classList.add("hidden");choose(id);
+});
+document.getElementById("backup").addEventListener("click",()=>{
+ const blob=new Blob([JSON.stringify({format:"douyin-xt-chat-v2",saved_at:new Date().toISOString(),data:local},null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="douyin-XT-聊天工作流-进度备份.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+document.getElementById("restore").addEventListener("click",()=>document.getElementById("restore-file").click());
+document.getElementById("restore-file").addEventListener("change",async e=>{
+ const f=e.target.files[0];if(!f)return;if(f.size>1024*1024){alert("进度备份超过1MB，请检查内容");return}
+ try{const b=JSON.parse(await f.text());if(b.format!=="douyin-xt-chat-v2"||!b.data||!Array.isArray(b.data.custom)||typeof b.data.states!=="object")throw Error("文件格式不正确");
+ if(!confirm("导入会覆盖当前浏览器进度，确定吗？"))return;
+ local=b.data;save();chosen=getAll()[0]?.id||null;render();alert("进度恢复成功");
+ }catch(err){alert("导入失败："+err.message)}finally{e.target.value=""}
+});
+document.getElementById("reset").addEventListener("click",()=>{if(confirm("确定清空本浏览器的工作进度和自建作品？冻结的三部样片不会被删除。")){local={states:{},custom:[]};save();chosen=presets[0]?.id||null;render()}});
+async function initialize(){lookup();try{const r=await fetch("./data/projects.json",{cache:"no-store"});if(!r.ok)throw Error("无法读取GitHub原稿");const data=await r.json();presets=data.projects||[];const query=new URLSearchParams(location.search).get("film");chosen=getAll().find(p=>p.id===query)?.id||getAll()[0]?.id||null;render()}catch(e){document.getElementById("details").textContent="加载冻结原稿失败："+e.message+"。请确认GitHub Pages已成功部署。";document.getElementById("films").textContent="读取失败。"}}
+initialize();
 </script>
 </body>
 </html>
