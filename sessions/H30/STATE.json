@@ -15,20 +15,22 @@
   "completed_outputs": [
     "sessions/H30/approvals/IMAGE02_APPROVAL_V003.md",
     "sessions/H30/feedback/IMAGE03_REVIEW_V001.md",
-    "sessions/H30/outputs/IMAGE03_REWORK_V001.md"
+    "sessions/H30/outputs/IMAGE03_REWORK_V001.md",
+    "sessions/H30/approvals/IMAGE01_APPROVAL_V002.md",
+    "sessions/H30/feedback/IMAGE03_CANDIDATE_REVIEW_V002.md"
   ],
   "latest_output_path": "sessions/H30/outputs/IMAGE03_REWORK_V001.md",
-  "latest_feedback_path": "sessions/H30/feedback/IMAGE03_REVIEW_V001.md",
+  "latest_feedback_path": "sessions/H30/feedback/IMAGE03_CANDIDATE_REVIEW_V002.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "图2 V003已用户单张定稿不可改；图3旧版微表情不对，需要用户用图3返修指令编辑并重新发图，返修通过后仍须核查图1；整组图片未批准禁止进入视频。",
+  "next_task": "用户已明确图1和图2单张定稿。新近景图片被用户标记图1但内容对应图3，需先确认图号；若为图3，AI建议候选通过，等用户明确满意后才能锁定。禁止进入视频。",
   "next_role": "GPT聊天导演与图片提示词作者",
-  "state_revision": 3,
-  "last_checkpoint": "CP0003",
+  "state_revision": 4,
+  "last_checkpoint": "CP0004",
   "last_saved": "2026-10-11",
   "review_target": "IMAGE03",
-  "review_status": "REWORK_WAITING_USER",
+  "review_status": "CANDIDATE_PASS_NEEDS_LABEL_CONFIRMATION",
   "image_group_user_approved": false,
   "image_approvals": {
     "IMAGE02": {
@@ -38,17 +40,21 @@
       "record_path": "sessions/H30/approvals/IMAGE02_APPROVAL_V003.md"
     },
     "IMAGE01": {
-      "approved": false
+      "approved": true,
+      "version": 2,
+      "evidence": "H30图1这版满意，确认图1单张定稿。图2维持已定稿，不要修改。下一步继续审核图3，禁止进入视频。",
+      "record_path": "sessions/H30/approvals/IMAGE01_APPROVAL_V002.md"
     },
     "IMAGE03": {
-      "approved": false
+      "approved": false,
+      "version": 2,
+      "label_needs_confirmation": true
     }
   },
   "image_reviews": {
     "IMAGE03": {
-      "status": "REWORK",
-      "review_path": "sessions/H30/feedback/IMAGE03_REVIEW_V001.md",
-      "rework_prompt": "sessions/H30/outputs/IMAGE03_REWORK_V001.md"
+      "status": "CANDIDATE_PASS_PENDING_IMAGE_NUMBER_AND_USER_APPROVAL",
+      "review_path": "sessions/H30/feedback/IMAGE03_CANDIDATE_REVIEW_V002.md"
     }
   }
 }
