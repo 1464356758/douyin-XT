@@ -29,17 +29,17 @@
     "sessions/H30/outputs/VIDEO02_STARTFRAME_GPT_EDIT_V001.md"
   ],
   "latest_output_path": "sessions/H30/outputs/VIDEO02_STARTFRAME_GPT_EDIT_V001.md",
-  "latest_feedback_path": "sessions/H30/feedback/VIDEO_SHOT02_USER_CORRECTION_V002.md",
+  "latest_feedback_path": "sessions/H30/feedback/JIMENG_FIRST_LAST_FRAMES_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "只做一步：在GPT用定稿图2副本编辑出临时视频起始帧（患者右手未举起、医生尚在操作），送回ChatGPT目视审核。绝不修改图1/2/3原定稿图，也不立即回即梦重新花积分。",
+  "next_task": "先在即梦首帧上传本轮已审临时起始图（右手在扶手），尾帧上传原定稿图2（右手举起，医生停下）；截图确认9:16、5秒以及两帧后才给专用提示词，暂不生成。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 11,
-  "last_checkpoint": "CP0011",
+  "state_revision": 12,
+  "last_checkpoint": "CP0012",
   "last_saved": "2026-10-11",
-  "review_target": "VIDEO_SHOT02",
-  "review_status": "FAIL_CORE_GESTURE_MISSING_STARTFRAME_PREP",
+  "review_target": "VIDEO_SHOT02_FIRST_LAST_FRAME",
+  "review_status": "AWAITING_FIRST_LAST_FRAME_UPLOAD_SCREENSHOT",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
