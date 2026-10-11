@@ -1,12 +1,11 @@
 {
-  "schema": 1,
-  "repo": "1464356758/douyin-XT",
+  "schema": 2,
+  "mode": "CHAT_ONLY",
   "source": "44条正式收藏 V2.1 原稿核对",
-  "notice": "公开仓库，Issue图片视频与审核意见可被其他人查看。",
+  "notice": "锁定原稿；GPT聊天创作与返修，用户手动验收；网页仅复制指令和本机进度，不调用GPT API。",
   "projects": [
     {
       "id": "H30",
-      "issue": 1,
       "title": "疼了就举手",
       "kind": "H",
       "kind_label": "真人剧情",
@@ -17,33 +16,10 @@
         "3～7秒：举手后，医生必须立即停止",
         "结尾：先黑底释怀字幕，再核心文案，不能改为不黑屏"
       ],
-      "stage": "IMAGE_PREP",
-      "images": [],
-      "videos": [],
-      "last_image_batch": [],
-      "last_video_batch": [],
-      "image_revision": 0,
-      "video_revision": 0,
-      "notes": [],
-      "history": [
-        {
-          "action": "created",
-          "at": "2026-10-11",
-          "detail": "原稿锁定；等待GPT出图"
-        }
-      ],
-      "published_url": "",
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "shares": 0,
-        "follows": 0
-      },
-      "updated_at": "2026-10-11"
+      "source_issue": 1
     },
     {
       "id": "S34",
-      "issue": 2,
       "title": "整个宇宙都在围观我",
       "kind": "S",
       "kind_label": "诗意风景",
@@ -55,33 +31,10 @@
         "7～11秒才出现银河，星空不能提前；保持真实天文摄影风格",
         "结尾人物渺小，完整文字、不黑屏"
       ],
-      "stage": "IMAGE_PREP",
-      "images": [],
-      "videos": [],
-      "last_image_batch": [],
-      "last_video_batch": [],
-      "image_revision": 0,
-      "video_revision": 0,
-      "notes": [],
-      "history": [
-        {
-          "action": "created",
-          "at": "2026-10-11",
-          "detail": "原稿锁定；等待GPT出图"
-        }
-      ],
-      "published_url": "",
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "shares": 0,
-        "follows": 0
-      },
-      "updated_at": "2026-10-11"
+      "source_issue": 2
     },
     {
       "id": "C01",
-      "issue": 3,
       "title": "照片里没有你",
       "kind": "C",
       "kind_label": "真人＋风景",
@@ -93,29 +46,7 @@
         "6～8秒必须听到快门声",
         "8～11秒定格为晚霞照片，不黑屏"
       ],
-      "stage": "IMAGE_PREP",
-      "images": [],
-      "videos": [],
-      "last_image_batch": [],
-      "last_video_batch": [],
-      "image_revision": 0,
-      "video_revision": 0,
-      "notes": [],
-      "history": [
-        {
-          "action": "created",
-          "at": "2026-10-11",
-          "detail": "原稿锁定；等待GPT出图"
-        }
-      ],
-      "published_url": "",
-      "stats": {
-        "views": 0,
-        "likes": 0,
-        "shares": 0,
-        "follows": 0
-      },
-      "updated_at": "2026-10-11"
+      "source_issue": 3
     }
   ]
 }

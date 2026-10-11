@@ -1,53 +1,44 @@
-# 神级评论电影工厂 douyin-XT
+# 🎬 神级评论电影工厂 V2.0：纯 GPT 聊天工作流
 
-**目标：把一句值得记住的话，拍成11秒电影。**
+仓库：https://github.com/1464356758/douyin-XT
 
-本系统只保留六步：选原稿 → GPT出图 → 你审图片 → 即梦/可灵图生视频 → 你审成片 → 发布复盘。
+**现在只做：GPT聊天拟定图片指令 → 你审图片／反复返修 → GPT聊天拟定视频指令 → 你审视频／反复返修 → 你批准定稿。**
 
-仓库已预置3部样片，均严格参照44条正式收藏库V2.1原稿，禁止AI改变对白时间、人物关系和结尾方式。
+## V2.0关键变化
 
-## 网页开启方法
+- 完全取消 GitHub Actions、Issue评论审核、Python自动状态机、API调用、后台数据库。
+- 网页不嵌入当前 ChatGPT 会话。它提供作品原稿、人工审核重点、复制四类聊天指令、打开ChatGPT按钮及本机进度。
+- 真正的图片由用户在 ChatGPT 聊天里生成与返修，实际视频制作需要合适的视频生成或剪辑工具；GPT负责镜头提示词与制作步骤，不虚构已经制作完成。
+- 未经用户明确说「图片满意」，不进入视频阶段。未经用户明确说「视频定稿」，不声称完成。
 
-GitHub仓库 Settings → Pages → Build and deployment → Source 选择 Deploy from a branch；分支 main，目录 /(root)，Save。
+## 最简单操作
 
-等待GitHub Pages部署完成后，访问 https://1464356758.github.io/douyin-XT/ 。
+1. 在网页选作品，点「复制图片首稿指令」，到ChatGPT同一聊天里粘贴；让GPT实际生成图片。
+2. 审核真实图片，不满意就填写返修意见并点「复制图片返修指令」，回GPT聊天继续修改，重复直到满意。
+3. 明确确认「图片满意」，网页可以人工标记进度。
+4. 点「复制视频首稿指令」，回GPT聊天，上传你确认的分镜图片；由GPT写每个镜头图生视频动作和制作步骤。
+5. 视频做完后上传到GPT聊天给它审核，或自己审核。不满意就复制视频返修指令继续改。
+6. 明确「视频定稿」，进入归档。网页记录不代替你对实际画面的判断。
 
-注意：网页地址只有完成Pages启用后才会生效。未启用时也可直接使用GitHub Issues进行审核。
+## 使用网页
 
-## 最简单的审核方法
+进入仓库 Settings → Pages → Source 选择 Deploy from a branch → main / (root) → Save。
 
-打开影片Issue，在同一条评论里：
-- 首行 /submit-image ，下一行从手机或电脑直接附加你在GPT生成的图片。
-- 审图通过评论 /approve-image；不满意评论 /revise-image 镜头视角不对，需要……
-- 图审通过后用即梦或可灵图生视频。
-- 首行 /submit-video ，下一行附加可公开预览视频。
-- 成片通过评论 /approve-video；不满意评论 /revise-video 具体问题……
-- 发布到抖音后评论 /published https://www.douyin.com/video/...
-- 数据复盘评论 /stats views=100 likes=10 shares=2 follows=1
+部署成功后预计站点是 https://1464356758.github.io/douyin-XT/
 
-**只有仓库主人评论的指令才会更新状态。** 未提交实际素材，禁止审核通过。
+注意：必须等GitHub确认 Pages 成功发布才能算网站正式上线。不开网站也可直接使用下方提示词。
 
-系统将素材版本、返修意见和审核状态写回 data/projects.json，由GitHub Actions自动保存。前端不要求填写Token。
+## 文件结构
 
-## 新增作品
+- index.html：无需后端的聊天指令工作台，手机也可用。
+- data/projects.json：首轮3部电影及完全保留的冻结原稿，原文不动。
+- prompts/CHAT_MASTER.md：复制到ChatGPT新聊天的总控。
+- prompts/IMAGE_START.md、IMAGE_REVISE.md：图片首稿、返修。
+- prompts/VIDEO_START.md、VIDEO_REVISE.md：视频首稿、返修。
+- docs/审核标准.md：视角、人物、动作、声音和原稿一致性的人工审核要点。
 
-网页填写标题、文案、完整脚本，然后打开预填的GitHub新Issue，提交后自动建档。新Issue需要登录GitHub仓库主人账户创建。
+## 数据边界
 
-## 必须知道的边界
+本仓库为公开仓库，作品原稿与网站源代码公开。网页选择图片／视频仅作为当前设备临时预览，不上传GitHub，也不会自动进入ChatGPT。用户保存的审核状态和笔记只在本浏览器localStorage，清除浏览器数据或换设备可能丢失。可用网页的导出／导入备份功能保护进度，备份不含媒体文件。旧Issue #1~#3仍可作历史参考，但新版完全不使用它们。
 
-本仓库是公开的，Issue附件、讨论、项目状态均可被公众查看。**尚未公开、不希望被看到的影片，不要上传原始文件到Issue**，可提交低码率公开视频预览；如需真正私密审核，需要后续换私有仓和带身份认证的后台。
-
-**GPT图片、即梦视频生成本身不在GitHub自动运行。** 第一版做的是确实可以在线用的人审控制台和状态管理，不会虚构自动调用视频模型的能力。
-
-推荐工具：
-- ChatGPT https://chatgpt.com/
-- 即梦 https://jimeng.jianying.com/
-- 可灵 https://klingai.com/
-- 剪映 https://www.jianying.com/
-
-项目文件：
-- index.html 单页控制台
-- data/projects.json 唯一状态源
-- scripts/review.py 审核状态机
-- .github/workflows/review.yml GitHub评论触发器
-- tests/test_review.py 状态机测试
+**无需数据库、付费接口、GitHub令牌、自动审核或复杂角色。**
