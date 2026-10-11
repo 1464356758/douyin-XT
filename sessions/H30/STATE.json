@@ -27,17 +27,17 @@
     "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md"
   ],
   "latest_output_path": "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md",
-  "latest_feedback_path": null,
+  "latest_feedback_path": "sessions/H30/feedback/JIMENG_MEMBER_PRICE_SCREENSHOTS_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "先打开即梦确认当前会员720p约5秒单条图生视频实际积分，选择合适模型。首轮只上传定稿图2，使用 JIMENG_EXECUTION_TASK_V003.md 的镜头2完整提示词生成一条视频；带MP4回GPT审核，失败仅局部返修；图1图3先保留剪映静帧节省积分。",
+  "next_task": "用户当前首帧误用了图3，唯一下一步：在Seedance2.0Fast的5秒9:16图生视频界面，把首帧换成已定稿图2（医生左侧，女生右手胸前举手），发截图。还不要点击生成。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 7,
-  "last_checkpoint": "CP0007",
+  "state_revision": 8,
+  "last_checkpoint": "CP0008",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT02",
-  "review_status": "TASK_ISSUED_WAITING_FIRST_GENERATION",
+  "review_status": "WAITING_CORRECT_REFERENCE_IMAGE",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
@@ -72,5 +72,13 @@
     "SHOT03": "NOT_GENERATED"
   },
   "credit_strategy_version": 3,
-  "credit_strategy_status": "EXECUTION_TASK_READY_MEMBER_COST_NOT_VERIFIED"
+  "credit_strategy_status": "PRICE_PREVIEW_CAPTURED_NOT_GENERATED",
+  "member_price_preview_points_5s_9x16": {
+    "Seedance 2.5": 60,
+    "Seedance 2.0 Mini": 30,
+    "Seedance 2.0 VIP": 70,
+    "Seedance 2.0 Fast VIP": 30,
+    "Seedance 2.0 Fast": 25
+  },
+  "credit_first_test_recommendation": "Seedance 2.0 Fast, 25 points (screen displayed)"
 }
