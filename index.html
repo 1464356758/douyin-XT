@@ -73,7 +73,12 @@ footer{text-align:center;font-size:12px;color:#86949b;padding:25px 5px}
 <header><div class="brand"><div class="brandmark">🎞</div><div><h1>神级评论电影工厂</h1><p>纯GPT聊天创作 · 你亲自审核 · 11秒电影</p></div></div><a class="headerlink" href="https://chatgpt.com/" target="_blank" rel="noopener">打开 ChatGPT ↗</a></header>
 <main>
  <div class="titlebar"><div><h2>电影制作工作台</h2><div class="hint">不接API、不设自动化，图片反复改到满意，再开始视频。</div></div><div class="buttons"><button id="new-open" class="mainbtn">＋ 新建作品</button><a href="https://github.com/1464356758/douyin-XT" target="_blank" rel="noopener" class="buttonlink">GitHub原稿 ↗</a></div></div>
- <section id="new-project" class="formbox hidden">
+ <section class="formbox" id="handoff-card">
+ <div class="topline"><div><h3 style="margin:0 0 7px">🔁 聊天满了？一键续作</h3><div id="handoff-summary" class="hint">正在读取 GitHub 正式检查点…</div></div><a class="mini-link" href="https://github.com/1464356758/douyin-XT/blob/main/继续任务.md" target="_blank" rel="noopener">查看GitHub交接文件 ↗</a></div>
+ <div class="buttons" style="margin-top:13px"><button id="copy-resume" class="mainbtn">复制到新GPT聊天的续作指令</button><button id="copy-save">复制保存当前进度指令</button><a class="buttonlink" href="https://chatgpt.com/" target="_blank" rel="noopener">打开GPT ↗</a></div>
+ <p class="small" style="margin:8px 0 0">保存进度由当前GPT聊天调用GitHub完成。网页不直接连接当前聊天、不会自动提交；请认准GPT返回的SAVED与实际提交。</p>
+</section>
+<section id="new-project" class="formbox hidden">
  <h3>新增作品（仅保存在你的当前浏览器）</h3><div class="formgrid"><label>作品名<input id="new-title" maxlength="100" placeholder="作品标题"></label><label>类型<select id="new-kind"><option>真人剧情</option><option>诗意风景</option><option selected>真人＋风景</option></select></label></div>
  <label>核心文案<textarea id="new-quote" maxlength="600" placeholder="最终要出现在视频里的那句文案"></textarea></label>
  <label>冻结原稿<textarea id="new-original" maxlength="10000" placeholder="包括0～3秒、3～7秒、7～11秒分镜、对白、音乐、结尾……"></textarea></label>
@@ -171,6 +176,21 @@ document.getElementById("details").addEventListener("click",async e=>{
  else if(a==="archive")await copyPrompt("归档");
  else stageMove(a);
 });
+const HANDOFF_RESUME="读取 douyin-XT/继续任务.md，恢复GitHub最新状态并继续当前任务。";
+const HANDOFF_SAVE="保存当前 douyin-XT 任务进度到GitHub。请读取 CURRENT.json 与 docs/断点续作协议.md，把当前完整提示词、我的最新返修意见、阶段、批准状态、版本与下一步写成正式检查点，回读验证后再告诉我SAVED或NOT_SAVED。";
+document.getElementById("copy-resume").addEventListener("click",()=>copyText(HANDOFF_RESUME));
+document.getElementById("copy-save").addEventListener("click",()=>copyText(HANDOFF_SAVE));
+async function fetchCheckpoint(){
+ const label=document.getElementById("handoff-summary");
+ try{
+  const r=await fetch("./CURRENT.json?rev="+Date.now(),{cache:"no-store"});
+  if(!r.ok)throw Error("GitHub检查点无法读取");
+  const s=await r.json();
+  const phase={IMAGE_FIRST:"等待GPT图片首稿",IMAGE_REVIEW:"等待你审图片",VIDEO_FIRST:"等待GPT视频指令",VIDEO_REVIEW:"等待你审成片",DONE:"已经由你确认定稿"};
+  label.textContent="GitHub主线："+(s.active_project_title||s.active_project_id)+" · "+(phase[s.phase]||s.phase)+" · 检查点 "+s.latest_checkpoint+" · 修订 "+s.checkpoint_revision;
+ }catch(e){label.textContent="暂时无法读取GitHub当前检查点，仍可打开交接文件查看。"}
+}
+fetchCheckpoint();
 document.getElementById("new-open").addEventListener("click",()=>document.getElementById("new-project").classList.remove("hidden"));
 document.getElementById("new-cancel").addEventListener("click",()=>document.getElementById("new-project").classList.add("hidden"));
 document.getElementById("new-save").addEventListener("click",()=>{
