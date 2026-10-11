@@ -22,17 +22,18 @@
     "sessions/H30/outputs/VIDEO_BUILD_GUIDE_V001.md",
     "sessions/H30/outputs/VIDEO_SHOT01_V001.md",
     "sessions/H30/outputs/VIDEO_SHOT02_V001.md",
-    "sessions/H30/outputs/VIDEO_SHOT03_V001.md"
+    "sessions/H30/outputs/VIDEO_SHOT03_V001.md",
+    "sessions/H30/outputs/JIMENG_CREDITS_STRATEGY_V002.md"
   ],
-  "latest_output_path": "sessions/H30/outputs/VIDEO_BUILD_GUIDE_V001.md",
+  "latest_output_path": "sessions/H30/outputs/JIMENG_CREDITS_STRATEGY_V002.md",
   "latest_feedback_path": null,
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "用户在即梦上传定稿图1，生成镜头1的首条视频片段，上传可读取的视频到当前GPT聊天进行实际验收；不得假称生成成功。镜头2镜头3指令已存，等待首镜头测试成功。",
+  "next_task": "请用户打开即梦图生视频页面，查看不同模型720p 5秒生成所需积分并上传截图，先不点击生成。默认优先只为图2求停镜头生成一次视频，其余图1图3先用剪映静态轻微推近；按会员实际积分对比再确定模型。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 5,
-  "last_checkpoint": "CP0005",
+  "state_revision": 6,
+  "last_checkpoint": "CP0006",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT01",
   "review_status": "PENDING_VIDEO_GENERATION",
@@ -68,5 +69,7 @@
     "SHOT01": "NOT_GENERATED",
     "SHOT02": "NOT_GENERATED",
     "SHOT03": "NOT_GENERATED"
-  }
+  },
+  "credit_strategy_version": 2,
+  "credit_strategy_status": "AWAITING_USER_MODEL_PRICE_SCREENSHOT"
 }
