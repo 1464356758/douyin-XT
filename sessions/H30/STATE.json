@@ -8,7 +8,7 @@
   "image_revision": 3,
   "image_approved_by_user": true,
   "image_approval_evidence": "用户明确说：图1和图2单张定稿；图3审核后回复“定稿算了”，并要求“下一步，目的是出视频，用即梦”。",
-  "video_prompt_version": 4,
+  "video_prompt_version": 5,
   "video_revision": 1,
   "video_approved_by_user": false,
   "video_approval_evidence": null,
@@ -28,20 +28,21 @@
     "sessions/H30/feedback/VIDEO_SHOT02_USER_CORRECTION_V002.md",
     "sessions/H30/outputs/VIDEO02_STARTFRAME_GPT_EDIT_V001.md",
     "sessions/H30/outputs/VIDEO_SHOT01_V002.md",
-    "sessions/H30/outputs/SEEDANCE20_MINI_USAGE_NOTES_V001.md"
+    "sessions/H30/outputs/SEEDANCE20_MINI_USAGE_NOTES_V001.md",
+    "sessions/H30/outputs/VIDEO_SHOT01_V003.md"
   ],
-  "latest_output_path": "sessions/H30/outputs/VIDEO_SHOT01_V002.md",
-  "latest_feedback_path": "sessions/H30/feedback/JIMENG_FIRST_LAST_FRAMES_V001.md",
+  "latest_output_path": "sessions/H30/outputs/VIDEO_SHOT01_V003.md",
+  "latest_feedback_path": "sessions/H30/feedback/JIMENG_MINI_REFERENCE_ONLY_CORRECTION_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "Seedance 2.0 Mini官方用法核验已完成并保存。当前唯一制作目标仍为图1：沿用VIDEO_SHOT01_V002.md，以已定稿图1为首帧，等待实际5秒MP4审核后选最佳3秒。若未生成，按用户当前即梦入口核对首帧/尾帧、时长和当下积分；GPT不得未经确认点击扣积分生成。图2首尾帧仍保留CP0012暂存，未定稿。",
+  "next_task": "已实际查看本次4张图并按用户顺序绑定2.2、3、1、2.1。已发布图1Mini参考图版V003：只上传本次第3张1000158564.png为唯一参考图，9:16、5秒、单条；不要求首帧/尾帧槽位。等待实际图1MP4审核，用户确认后才锁定和进入下一镜头。图2CP0012起止剧情设计保留历史，首尾帧槽位操作在当前入口不激活；尚未发布新图2任务。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 14,
-  "last_checkpoint": "CP0014",
+  "state_revision": 15,
+  "last_checkpoint": "CP0015",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT01",
-  "review_status": "PROMPT_ISSUED_WAITING_VIDEO",
+  "review_status": "PROMPT_V003_ISSUED_WAITING_VIDEO",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
@@ -75,8 +76,8 @@
     "SHOT02": "GENERATED_FAIL_NO_HAND_RAISE_NOT_LOCKED",
     "SHOT03": "NOT_GENERATED"
   },
-  "credit_strategy_version": 5,
-  "credit_strategy_status": "MINI_SHOT01_FIRST_FRAME_SHOT02_FIRST_LAST_FRAMES_ACCOUNT_UI_AND_CURRENT_PRICE_TO_VERIFY",
+  "credit_strategy_version": 6,
+  "credit_strategy_status": "MINI_ONLY_REFERENCE_IMAGES_ONLY_CURRENT_PRICE_TO_VERIFY",
   "member_price_preview_points_5s_9x16": {
     "Seedance 2.5": 60,
     "Seedance 2.0 Mini": 30,
@@ -84,7 +85,7 @@
     "Seedance 2.0 Fast VIP": 30,
     "Seedance 2.0 Fast": 25
   },
-  "credit_first_test_recommendation": "当前只做图1，首帧为已定稿图1；5秒9:16。30积分仅为历史会员预览，生成前以当前界面为准并由用户确认。图2临时前态→正式图2首尾帧方案暂存；不把多图参考当作首尾帧。",
+  "credit_first_test_recommendation": "当前只做图1：本次第3张1000158564.png作为唯一参考图，Mini、9:16、5秒、单条。入口没有独立首帧/尾帧槽位。30积分为历史预览，实扣以当前界面为准，GPT未经用户确认不得代点生成。",
   "video_model_used": "Seedance 2.0 Mini",
   "video_reference_images_used": [
     "定稿图2"
@@ -95,5 +96,93 @@
     "credit_strategy_version": 4,
     "credit_strategy_status": "FAST_FIRSTFRAME_REJECTED_SWITCH_TO_MINI_MULTI_REFERENCE",
     "credit_first_test_recommendation": "Seedance 2.0 Mini 5s 30 displayed credits, multi-image reference; verify interface before generating"
+  },
+  "historical_credit_strategy_cp0014": {
+    "credit_strategy_version": 5,
+    "credit_strategy_status": "MINI_SHOT01_FIRST_FRAME_SHOT02_FIRST_LAST_FRAMES_ACCOUNT_UI_AND_CURRENT_PRICE_TO_VERIFY",
+    "credit_first_test_recommendation": "当前只做图1，首帧为已定稿图1；5秒9:16。30积分仅为历史会员预览，生成前以当前界面为准并由用户确认。图2临时前态→正式图2首尾帧方案暂存；不把多图参考当作首尾帧。"
+  },
+  "latest_media_binding_path": "sessions/H30/feedback/JIMENG_MINI_REFERENCE_ONLY_CORRECTION_V001.md",
+  "received_image_bindings": [
+    {
+      "uploaded_name": "1000158577.png",
+      "user_label": "2.2",
+      "width": 864,
+      "height": 1536,
+      "sha256": "4e326e503a8fe1c0087d1b70332d3002c6225e17d4ca87194cb0bc7946ca751e",
+      "upload_order": 1,
+      "role": "SHOT02_PRE_ACTION_AUXILIARY",
+      "observation": "患者双手仍在扶手，嘴微张，医生器械在口部检查中；动作发生前的辅助状态，不替代正式图2。",
+      "pixel_inspection": "VIEW_IMAGE_COMPLETED",
+      "media_uploaded_to_public_repo": false
+    },
+    {
+      "uploaded_name": "1000158565.png",
+      "user_label": "3",
+      "width": 864,
+      "height": 1536,
+      "sha256": "9f1e4dea70766de8d2b2761d626773ee547747c2687bccbe71bc3b5175d52a76",
+      "upload_order": 2,
+      "role": "IMAGE03_LOCKED_EMOTION_CLOSEUP",
+      "observation": "患者近景看向医生，眼眶微红，胸前手指放松；释怀画面。",
+      "pixel_inspection": "VIEW_IMAGE_COMPLETED",
+      "media_uploaded_to_public_repo": false
+    },
+    {
+      "uploaded_name": "1000158564.png",
+      "user_label": "1",
+      "width": 864,
+      "height": 1536,
+      "sha256": "88884b5219751faf00ab9675b150b868edefe4ba872bde6ea52bc938f7798b16",
+      "upload_order": 3,
+      "role": "IMAGE01_LOCKED_DOCTOR_REMINDER",
+      "observation": "医生掌心向上解释，患者双手在扶手、抬眼听医生；当前唯一视频参考图。",
+      "pixel_inspection": "VIEW_IMAGE_COMPLETED",
+      "media_uploaded_to_public_repo": false
+    },
+    {
+      "uploaded_name": "1000158563.png",
+      "user_label": "2.1",
+      "width": 864,
+      "height": 1536,
+      "sha256": "0a4c77c8f4423ac9b93801924e05284a0721859134d02f197ba460a5817bf034",
+      "upload_order": 4,
+      "role": "IMAGE02_LOCKED_STOP_SIGNAL",
+      "observation": "患者胸前抬手求停，医生器械撤出口部并看向患者；正式图2动作后状态。",
+      "pixel_inspection": "VIEW_IMAGE_COMPLETED",
+      "media_uploaded_to_public_repo": false
+    }
+  ],
+  "selected_video_model": "Seedance 2.0 Mini",
+  "video_model_lock": "MINI_ONLY",
+  "current_jimeng_entry": "REFERENCE_IMAGES_ONLY",
+  "current_jimeng_entry_evidence": {
+    "source": "USER_REPORT",
+    "date": "2026-10-11",
+    "quote": "我只使用mini模型。另外就是没有分首帧的，只能上传参考图。",
+    "ui_directly_observed": false
+  },
+  "current_video_task": {
+    "shot": "SHOT01",
+    "version": 3,
+    "prompt_path": "sessions/H30/outputs/VIDEO_SHOT01_V003.md",
+    "reference_uploaded_name": "1000158564.png",
+    "reference_user_label": "1",
+    "reference_upload_order_in_user_message": 3,
+    "reference_sha256": "88884b5219751faf00ab9675b150b868edefe4ba872bde6ea52bc938f7798b16",
+    "mode": "REFERENCE_IMAGES_ONLY",
+    "model": "Seedance 2.0 Mini",
+    "duration_seconds_target": 5,
+    "ratio": "9:16",
+    "results_count_target": 1,
+    "generation_performed_by_gpt": false,
+    "video_received": false
+  },
+  "shot02_previous_first_last_plan": {
+    "checkpoint": "CP0012",
+    "status": "PRESERVED_HISTORICAL_NOT_ACTIVE_IN_CURRENT_ENTRY",
+    "pre_action_user_label": "2.2",
+    "post_action_user_label": "2.1",
+    "new_reference_only_task_issued": false
   }
 }
