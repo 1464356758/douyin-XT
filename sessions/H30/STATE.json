@@ -8,7 +8,7 @@
   "image_revision": 3,
   "image_approved_by_user": true,
   "image_approval_evidence": "用户明确说：图1和图2单张定稿；图3审核后回复“定稿算了”，并要求“下一步，目的是出视频，用即梦”。",
-  "video_prompt_version": 1,
+  "video_prompt_version": 3,
   "video_revision": 0,
   "video_approved_by_user": false,
   "video_approval_evidence": null,
@@ -23,20 +23,21 @@
     "sessions/H30/outputs/VIDEO_SHOT01_V001.md",
     "sessions/H30/outputs/VIDEO_SHOT02_V001.md",
     "sessions/H30/outputs/VIDEO_SHOT03_V001.md",
-    "sessions/H30/outputs/JIMENG_CREDITS_STRATEGY_V002.md"
+    "sessions/H30/outputs/JIMENG_CREDITS_STRATEGY_V002.md",
+    "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md"
   ],
-  "latest_output_path": "sessions/H30/outputs/JIMENG_CREDITS_STRATEGY_V002.md",
+  "latest_output_path": "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md",
   "latest_feedback_path": null,
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "请用户打开即梦图生视频页面，查看不同模型720p 5秒生成所需积分并上传截图，先不点击生成。默认优先只为图2求停镜头生成一次视频，其余图1图3先用剪映静态轻微推近；按会员实际积分对比再确定模型。",
+  "next_task": "先打开即梦确认当前会员720p约5秒单条图生视频实际积分，选择合适模型。首轮只上传定稿图2，使用 JIMENG_EXECUTION_TASK_V003.md 的镜头2完整提示词生成一条视频；带MP4回GPT审核，失败仅局部返修；图1图3先保留剪映静帧节省积分。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 6,
-  "last_checkpoint": "CP0006",
+  "state_revision": 7,
+  "last_checkpoint": "CP0007",
   "last_saved": "2026-10-11",
-  "review_target": "VIDEO_SHOT01",
-  "review_status": "PENDING_VIDEO_GENERATION",
+  "review_target": "VIDEO_SHOT02",
+  "review_status": "TASK_ISSUED_WAITING_FIRST_GENERATION",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
@@ -70,6 +71,6 @@
     "SHOT02": "NOT_GENERATED",
     "SHOT03": "NOT_GENERATED"
   },
-  "credit_strategy_version": 2,
-  "credit_strategy_status": "AWAITING_USER_MODEL_PRICE_SCREENSHOT"
+  "credit_strategy_version": 3,
+  "credit_strategy_status": "EXECUTION_TASK_READY_MEMBER_COST_NOT_VERIFIED"
 }
