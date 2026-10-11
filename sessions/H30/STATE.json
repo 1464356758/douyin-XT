@@ -2,13 +2,13 @@
   "schema": 1,
   "project_id": "H30",
   "title": "疼了就举手",
-  "stage": "IMAGE_REVIEW",
+  "stage": "VIDEO_FIRST",
   "original_source": "data/projects.json#H30",
   "image_prompt_version": 1,
   "image_revision": 3,
-  "image_approved_by_user": false,
-  "image_approval_evidence": null,
-  "video_prompt_version": 0,
+  "image_approved_by_user": true,
+  "image_approval_evidence": "用户明确说：图1和图2单张定稿；图3审核后回复“定稿算了”，并要求“下一步，目的是出视频，用即梦”。",
+  "video_prompt_version": 1,
   "video_revision": 0,
   "video_approved_by_user": false,
   "video_approval_evidence": null,
@@ -17,21 +17,26 @@
     "sessions/H30/feedback/IMAGE03_REVIEW_V001.md",
     "sessions/H30/outputs/IMAGE03_REWORK_V001.md",
     "sessions/H30/approvals/IMAGE01_APPROVAL_V002.md",
-    "sessions/H30/feedback/IMAGE03_CANDIDATE_REVIEW_V002.md"
+    "sessions/H30/feedback/IMAGE03_CANDIDATE_REVIEW_V002.md",
+    "sessions/H30/approvals/IMAGES_ALL_LOCKED_V001.md",
+    "sessions/H30/outputs/VIDEO_BUILD_GUIDE_V001.md",
+    "sessions/H30/outputs/VIDEO_SHOT01_V001.md",
+    "sessions/H30/outputs/VIDEO_SHOT02_V001.md",
+    "sessions/H30/outputs/VIDEO_SHOT03_V001.md"
   ],
-  "latest_output_path": "sessions/H30/outputs/IMAGE03_REWORK_V001.md",
-  "latest_feedback_path": "sessions/H30/feedback/IMAGE03_CANDIDATE_REVIEW_V002.md",
+  "latest_output_path": "sessions/H30/outputs/VIDEO_BUILD_GUIDE_V001.md",
+  "latest_feedback_path": null,
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "用户已明确图1和图2单张定稿。新近景图片被用户标记图1但内容对应图3，需先确认图号；若为图3，AI建议候选通过，等用户明确满意后才能锁定。禁止进入视频。",
-  "next_role": "GPT聊天导演与图片提示词作者",
-  "state_revision": 4,
-  "last_checkpoint": "CP0004",
+  "next_task": "用户在即梦上传定稿图1，生成镜头1的首条视频片段，上传可读取的视频到当前GPT聊天进行实际验收；不得假称生成成功。镜头2镜头3指令已存，等待首镜头测试成功。",
+  "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
+  "state_revision": 5,
+  "last_checkpoint": "CP0005",
   "last_saved": "2026-10-11",
-  "review_target": "IMAGE03",
-  "review_status": "CANDIDATE_PASS_NEEDS_LABEL_CONFIRMATION",
-  "image_group_user_approved": false,
+  "review_target": "VIDEO_SHOT01",
+  "review_status": "PENDING_VIDEO_GENERATION",
+  "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
       "approved": true,
@@ -46,9 +51,11 @@
       "record_path": "sessions/H30/approvals/IMAGE01_APPROVAL_V002.md"
     },
     "IMAGE03": {
-      "approved": false,
+      "approved": true,
       "version": 2,
-      "label_needs_confirmation": true
+      "evidence": "定稿算了。",
+      "record_path": "sessions/H30/approvals/IMAGES_ALL_LOCKED_V001.md",
+      "label_needs_confirmation": false
     }
   },
   "image_reviews": {
@@ -56,5 +63,10 @@
       "status": "CANDIDATE_PASS_PENDING_IMAGE_NUMBER_AND_USER_APPROVAL",
       "review_path": "sessions/H30/feedback/IMAGE03_CANDIDATE_REVIEW_V002.md"
     }
+  },
+  "video_clips_status": {
+    "SHOT01": "NOT_GENERATED",
+    "SHOT02": "NOT_GENERATED",
+    "SHOT03": "NOT_GENERATED"
   }
 }
