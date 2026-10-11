@@ -24,20 +24,22 @@
     "sessions/H30/outputs/VIDEO_SHOT02_V001.md",
     "sessions/H30/outputs/VIDEO_SHOT03_V001.md",
     "sessions/H30/outputs/JIMENG_CREDITS_STRATEGY_V002.md",
-    "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md"
+    "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md",
+    "sessions/H30/feedback/VIDEO_SHOT02_USER_CORRECTION_V002.md",
+    "sessions/H30/outputs/VIDEO02_STARTFRAME_GPT_EDIT_V001.md"
   ],
-  "latest_output_path": "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md",
-  "latest_feedback_path": "sessions/H30/feedback/VIDEO_SHOT02_REVIEW_V001.md",
+  "latest_output_path": "sessions/H30/outputs/VIDEO02_STARTFRAME_GPT_EDIT_V001.md",
+  "latest_feedback_path": "sessions/H30/feedback/VIDEO_SHOT02_USER_CORRECTION_V002.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "收到5.09秒实际视频，已审前2秒医生撤出器械相对有效、缺少从犹豫到举手。先请用户说明这条视频实际使用哪一款即梦模型、提供了哪几张参考图片，再决定是否需要且如何最低积分补拍举手。不要现在重新生成。",
+  "next_task": "只做一步：在GPT用定稿图2副本编辑出临时视频起始帧（患者右手未举起、医生尚在操作），送回ChatGPT目视审核。绝不修改图1/2/3原定稿图，也不立即回即梦重新花积分。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 10,
-  "last_checkpoint": "CP0010",
+  "state_revision": 11,
+  "last_checkpoint": "CP0011",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT02",
-  "review_status": "PARTIAL_PASS_MISSING_HAND_RAISE",
+  "review_status": "FAIL_CORE_GESTURE_MISSING_STARTFRAME_PREP",
   "image_group_user_approved": true,
   "image_approvals": {
     "IMAGE02": {
@@ -68,7 +70,7 @@
   },
   "video_clips_status": {
     "SHOT01": "NOT_GENERATED",
-    "SHOT02": "GENERATED_REVIEW_PARTIAL_PASS_NOT_LOCKED",
+    "SHOT02": "GENERATED_FAIL_NO_HAND_RAISE_NOT_LOCKED",
     "SHOT03": "NOT_GENERATED"
   },
   "credit_strategy_version": 4,
@@ -80,5 +82,9 @@
     "Seedance 2.0 Fast VIP": 30,
     "Seedance 2.0 Fast": 25
   },
-  "credit_first_test_recommendation": "Seedance 2.0 Mini 5s 30 displayed credits, multi-image reference; verify interface before generating"
+  "credit_first_test_recommendation": "Seedance 2.0 Mini 5s 30 displayed credits, multi-image reference; verify interface before generating",
+  "video_model_used": "Seedance 2.0 Mini",
+  "video_reference_images_used": [
+    "定稿图2"
+  ]
 }
