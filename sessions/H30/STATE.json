@@ -27,17 +27,18 @@
     "sessions/H30/outputs/JIMENG_EXECUTION_TASK_V003.md",
     "sessions/H30/feedback/VIDEO_SHOT02_USER_CORRECTION_V002.md",
     "sessions/H30/outputs/VIDEO02_STARTFRAME_GPT_EDIT_V001.md",
-    "sessions/H30/outputs/VIDEO_SHOT01_V002.md"
+    "sessions/H30/outputs/VIDEO_SHOT01_V002.md",
+    "sessions/H30/outputs/SEEDANCE20_MINI_USAGE_NOTES_V001.md"
   ],
   "latest_output_path": "sessions/H30/outputs/VIDEO_SHOT01_V002.md",
   "latest_feedback_path": "sessions/H30/feedback/JIMENG_FIRST_LAST_FRAMES_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "用户已经收到图1即梦视频提示词V002及审核要点。下一步等待用户用已定稿图1生成5秒源视频并上传实际MP4，审核后选最佳3秒。用户未要求的其它步骤不提前发。图2首尾帧仍保留CP0012为暂存事项，未定稿。",
+  "next_task": "Seedance 2.0 Mini官方用法核验已完成并保存。当前唯一制作目标仍为图1：沿用VIDEO_SHOT01_V002.md，以已定稿图1为首帧，等待实际5秒MP4审核后选最佳3秒。若未生成，按用户当前即梦入口核对首帧/尾帧、时长和当下积分；GPT不得未经确认点击扣积分生成。图2首尾帧仍保留CP0012暂存，未定稿。",
   "next_role": "同一GPT聊天｜即梦图生视频导演与人工审核助手",
-  "state_revision": 13,
-  "last_checkpoint": "CP0013",
+  "state_revision": 14,
+  "last_checkpoint": "CP0014",
   "last_saved": "2026-10-11",
   "review_target": "VIDEO_SHOT01",
   "review_status": "PROMPT_ISSUED_WAITING_VIDEO",
@@ -74,8 +75,8 @@
     "SHOT02": "GENERATED_FAIL_NO_HAND_RAISE_NOT_LOCKED",
     "SHOT03": "NOT_GENERATED"
   },
-  "credit_strategy_version": 4,
-  "credit_strategy_status": "FAST_FIRSTFRAME_REJECTED_SWITCH_TO_MINI_MULTI_REFERENCE",
+  "credit_strategy_version": 5,
+  "credit_strategy_status": "MINI_SHOT01_FIRST_FRAME_SHOT02_FIRST_LAST_FRAMES_ACCOUNT_UI_AND_CURRENT_PRICE_TO_VERIFY",
   "member_price_preview_points_5s_9x16": {
     "Seedance 2.5": 60,
     "Seedance 2.0 Mini": 30,
@@ -83,9 +84,16 @@
     "Seedance 2.0 Fast VIP": 30,
     "Seedance 2.0 Fast": 25
   },
-  "credit_first_test_recommendation": "Seedance 2.0 Mini 5s 30 displayed credits, multi-image reference; verify interface before generating",
+  "credit_first_test_recommendation": "当前只做图1，首帧为已定稿图1；5秒9:16。30积分仅为历史会员预览，生成前以当前界面为准并由用户确认。图2临时前态→正式图2首尾帧方案暂存；不把多图参考当作首尾帧。",
   "video_model_used": "Seedance 2.0 Mini",
   "video_reference_images_used": [
     "定稿图2"
-  ]
+  ],
+  "latest_model_usage_path": "sessions/H30/outputs/SEEDANCE20_MINI_USAGE_NOTES_V001.md",
+  "model_usage_research_status": "OFFICIAL_DOCS_REVIEWED_ACCOUNT_UI_NOT_OBSERVED",
+  "historical_credit_strategy_cp0013": {
+    "credit_strategy_version": 4,
+    "credit_strategy_status": "FAST_FIRSTFRAME_REJECTED_SWITCH_TO_MINI_MULTI_REFERENCE",
+    "credit_first_test_recommendation": "Seedance 2.0 Mini 5s 30 displayed credits, multi-image reference; verify interface before generating"
+  }
 }

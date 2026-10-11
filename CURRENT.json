@@ -8,8 +8,8 @@
   "active_state_path": "sessions/H30/STATE.json",
   "active_handoff_path": "sessions/H30/交接.md",
   "original_data_path": "data/projects.json",
-  "latest_checkpoint": "CP0013",
-  "checkpoint_revision": 13,
+  "latest_checkpoint": "CP0014",
+  "checkpoint_revision": 14,
   "phase": "VIDEO_REVIEW",
   "image_user_approved": true,
   "video_user_approved": false,
@@ -17,8 +17,9 @@
   "latest_feedback_path": "sessions/H30/feedback/JIMENG_FIRST_LAST_FRAMES_V001.md",
   "media_saved": false,
   "last_saved": "2026-10-11",
-  "next_action": "用户单独请求图1即梦视频指令，V002已发布并附审核点。等待用户用已定稿图1生成5秒图生视频，上传MP4检查人物/手势/诊室和对白可剪性。此前图2首尾帧任务保留暂存。",
+  "next_action": "Seedance 2.0 Mini官方用法核验已完成并保存。当前唯一制作目标仍为图1：沿用VIDEO_SHOT01_V002.md，以已定稿图1为首帧，等待实际5秒MP4审核后选最佳3秒。若未生成，按用户当前即梦入口核对首帧/尾帧、时长和当下积分；GPT不得未经确认点击扣积分生成。图2首尾帧仍保留CP0012暂存，未定稿。",
   "image2_user_approved": true,
   "image3_user_approved": true,
-  "image1_user_approved": true
+  "image1_user_approved": true,
+  "latest_model_usage_path": "sessions/H30/outputs/SEEDANCE20_MINI_USAGE_NOTES_V001.md"
 }
