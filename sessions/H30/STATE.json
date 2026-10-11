@@ -4,7 +4,7 @@
   "title": "疼了就举手",
   "stage": "IMAGE_REVIEW",
   "original_source": "data/projects.json#H30",
-  "image_prompt_version": 0,
+  "image_prompt_version": 1,
   "image_revision": 3,
   "image_approved_by_user": false,
   "image_approval_evidence": null,
@@ -12,17 +12,43 @@
   "video_revision": 0,
   "video_approved_by_user": false,
   "video_approval_evidence": null,
-  "completed_outputs": [],
-  "latest_output_path": null,
-  "latest_feedback_path": "sessions/H30/feedback/IMAGE02_REVIEW_V003.md",
+  "completed_outputs": [
+    "sessions/H30/approvals/IMAGE02_APPROVAL_V003.md",
+    "sessions/H30/feedback/IMAGE03_REVIEW_V001.md",
+    "sessions/H30/outputs/IMAGE03_REWORK_V001.md"
+  ],
+  "latest_output_path": "sessions/H30/outputs/IMAGE03_REWORK_V001.md",
+  "latest_feedback_path": "sessions/H30/feedback/IMAGE03_REVIEW_V001.md",
   "media_urls": [],
   "media_visibility": "NOT_STORED",
   "media_recheck_required_if_unavailable": true,
-  "next_task": "等待用户明确图2是否满意；不满意则微调手势。图1图3尚待逐张最终确认，整组未批准前不进入视频。",
+  "next_task": "图2 V003已用户单张定稿不可改；图3旧版微表情不对，需要用户用图3返修指令编辑并重新发图，返修通过后仍须核查图1；整组图片未批准禁止进入视频。",
   "next_role": "GPT聊天导演与图片提示词作者",
-  "state_revision": 2,
-  "last_checkpoint": "CP0002",
+  "state_revision": 3,
+  "last_checkpoint": "CP0003",
   "last_saved": "2026-10-11",
-  "review_target": "IMAGE02",
-  "review_status": "NEAR_PASS_WAITING_USER"
+  "review_target": "IMAGE03",
+  "review_status": "REWORK_WAITING_USER",
+  "image_group_user_approved": false,
+  "image_approvals": {
+    "IMAGE02": {
+      "approved": true,
+      "version": 3,
+      "evidence": "H30图2这版满意，确认图2单张定稿。继续审核图3，不要进入视频阶段。",
+      "record_path": "sessions/H30/approvals/IMAGE02_APPROVAL_V003.md"
+    },
+    "IMAGE01": {
+      "approved": false
+    },
+    "IMAGE03": {
+      "approved": false
+    }
+  },
+  "image_reviews": {
+    "IMAGE03": {
+      "status": "REWORK",
+      "review_path": "sessions/H30/feedback/IMAGE03_REVIEW_V001.md",
+      "rework_prompt": "sessions/H30/outputs/IMAGE03_REWORK_V001.md"
+    }
+  }
 }
