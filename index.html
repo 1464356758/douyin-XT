@@ -111,7 +111,8 @@ function list(){document.getElementById("films").innerHTML=getAll().map(p=>'<but
 function clearMedia(){mediaUrls.forEach(u=>URL.revokeObjectURL(u));mediaUrls=[]}
 function copyText(str){return navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(str).catch(()=>{window.prompt("请复制下面的GPT聊天指令",str)}):Promise.resolve(window.prompt("请复制下面的GPT聊天指令",str))}
 function promptText(p,type,feedback){
- const header="【神级评论电影工厂 V2.0｜"+type+"】\n你是GPT聊天模式里的电影导演与分镜提示词专家。只有用户可以批准图片和成片。请保留原稿的文案、剧情逻辑、对白秒点、结尾方式，不能擅改。\n\n【作品】"+p.title+"\n【类型】"+(p.kind_label||p.kind)+"\n【核心文案】"+p.quote+"\n\n【冻结原稿】\n"+p.original+"\n\n【特别审核点】\n"+(p.review_focus||[]).map((v,i)=>(i+1)+". "+v).join("\n")+"\n\n";
+ let header="【神级评论电影工厂 V2.1｜"+type+"】\n你是GPT聊天模式里的电影导演与分镜提示词专家。只有用户可以批准图片和成片。请保留原稿的文案、剧情逻辑、对白秒点、结尾方式，不能擅改。\n\n【作品】"+p.title+"\n【类型】"+(p.kind_label||p.kind)+"\n【核心文案】"+p.quote+"\n\n【冻结原稿】\n"+p.original+"\n\n【特别审核点】\n"+(p.review_focus||[]).map((v,i)=>(i+1)+". "+v).join("\n")+"\n\n";
+ header+="【GitHub断点续作规则】\n每次生成完整图片或视频指令、接收用户反馈或明确的用户审批后，都必须通过当前聊天GitHub工具保存本轮产物全文到新版本路径，更新CURRENT.json、当前作品STATE.json、交接.md与继续任务.md，创建新checkpoint并回读核验。未实际提交则标明NOT_SAVED；不得擅自通过人工审批。详细规则读 docs/断点续作协议.md。\n\n";
  if(type==="图片首稿")return header+"只执行图片阶段：\n1. 从原稿拆解分镜，每个镜头给可复制到GPT出图的超详细提示词（9:16竖屏、真实摄影质感）。\n2. 首先给统一的人物外貌／场景／道具／光照锚点，锁定跨镜头一致性。\n3. 每镜头写清摄影机位置、视角、景别、构图、人物动作瞬间、禁止生成的错误。\n4. 每镜头列我应人工审核的3个细节，尤其是视角与人物／手部。\n5. 需要我指示时再实际生图；我会反复让你修图，直到我明确说「图片满意」。现在不要进入视频阶段。";
  if(type==="图片返修")return header+"【我审核后指出的问题】\n"+feedback+"\n\n请先基于本聊天里我上传的实际图片审查可见画面；如果看不到，请如实说明并让我重新上传。只修指出的问题，分成【哪些绝对保留】【具体改哪些】【新版完整的GPT图片编辑／重新生成指令】【返修后的重点检查】。不要擅改故事、人物、光影和我未要求修改的内容。未获我明确「图片满意」不得切换视频。";
  if(type==="视频首稿")return header+"我已亲自确认参考图片满意。请以我在当前聊天确认的图片为首帧/镜头参考；若看不到我定稿的图片，请让我上传，不能编造已经看过。\n只输出视频制作阶段：按原稿的确切秒数逐镜头写出图生视频提示词、动作、人物表情、运镜、镜头衔接、错误画面禁止项、配音/环境声/音乐/字幕时点及剪辑顺序。视频如果必须使用第三方工具，请给明确操作方法；不要声称已经自动生成视频。最后给我最多5条人工验收重点。未经我说「视频定稿」不能归档。";
